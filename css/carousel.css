@@ -18,9 +18,15 @@ body {
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+  position: absolute; /* Posicionamento absoluto para controlar a posição */
+  top: 20%; /* Coloca a legenda no meio da altura da imagem */
+  left: 50%; /* Coloca a legenda no meio da largura da imagem */
+  transform: translate(-50%, -50%); /* Ajusta o deslocamento para centralizar perfeitamente */
+  z-index: 10; /* Certifica que o texto fique acima da imagem */
+  text-align: center; /* Alinha o texto ao centro */
+  color: white; /* Garante que o texto seja visível se a imagem for escura */
 }
+
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
@@ -91,3 +97,5 @@ body {
     margin-top: 7rem;
   }
 }
+
+
