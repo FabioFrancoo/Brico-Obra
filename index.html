@@ -3,39 +3,53 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Inicial Moderna</title>
+    <title>Brico-Obra: Materiais de Bricolagem e Construção</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css\index.css" />
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Header/Navigation -->
-    <header class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex items-center">
-                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span class="text-white font-bold text-xl">M</span>
-                </div>
-                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Moderno</span>
-            </div>
-            <!-- Search Bar (desktop) -->
-            <div class="hidden md:block w-1/3 mx-8">
-                <div class="relative">
-                    <input type="text" placeholder="O que procura na Brico-Obra?" class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <button class="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-blue-600">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- Icons -->
-            <div class="flex items-center space-x-6">
-                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover"><i class="fas fa-user text-xl"></i></a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover"><i class="fas fa-heart text-xl"></i></a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover"><i class="fas fa-shopping-cart text-xl"></i></a>
+<header class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <img src="assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+            <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+        </div>
+        <!-- Search Bar (desktop) -->
+        <div class="hidden md:block w-1/3 mx-8">
+            <div class="relative">
+                <input type="text" placeholder="O que procura na Brico-Obra?" class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <button class="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-blue-600">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
         </div>
-    </header>
+        <!-- Icons -->
+        <div class="flex items-center space-x-6">
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover">
+                    <i class="fas fa-info text-xl"></i>
+                </a>
+                <span class="text-sm text-gray-600">Sobre Nós</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                </a>
+                <span class="text-sm text-gray-600">Carrinho</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+                <span class="text-sm text-gray-600">Iniciar sessão</span>
+            </div>
+        </div>
+    </div>
+</header>
+
 
     <!-- Banner Section -->
     <main class="pt-16">
@@ -57,15 +71,14 @@
 
         <!-- Featured Categories -->
         <div class="container mx-auto px-6 py-16">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Categorias em Destaque</h2>
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Best-sellers do último mês</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <div class="h-48 bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
-                        <i class="fas fa-laptop text-white text-6xl"></i>
-                    </div>
+                    <img src="assets/images/media.jpg" alt="Tinta" class="w-full h-48 object-contain">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Tecnologia</h3>
-                        <p class="text-gray-600">Os mais recentes dispositivos e gadgets</p>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC</h3>
+                        <p class="text-gray-600">Ref 18725826</p>
+                        <p class="text-black-600">76,99€</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
@@ -95,8 +108,8 @@
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Moderno</h3>
-                    <p class="text-gray-400">Sua plataforma para descobrir produtos e serviços de qualidade.</p>
+                    <h3 class="text-xl font-bold mb-4">Brico-Obra</h3>
+                    <p class="text-gray-400">Materiais de Bricolagem e Construção   </p>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
@@ -117,14 +130,13 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
-                    <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i> São Paulo, Brasil</p>
-                    <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i> (11) 1234-5678</p>
-                    <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i> contato@moderno.com</p>
+                    <h4 class="text-lg font-semibold mb-4">Contatos</h4>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i> (+351) 213 456 789 (chamada para rede fixa nacional)</p>
+                    <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i> brico.obra@sapo.pt</p>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Moderno. Todos os direitos reservados.</p>
+                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
