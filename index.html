@@ -1,13 +1,134 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <title>Página Inicial Moderna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css\index.css" />
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">M</span>
+                </div>
+                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Moderno</span>
+            </div>
+            <!-- Search Bar (desktop) -->
+            <div class="hidden md:block w-1/3 mx-8">
+                <div class="relative">
+                    <input type="text" placeholder="O que procura na Brico-Obra?" class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button class="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover"><i class="fas fa-user text-xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover"><i class="fas fa-heart text-xl"></i></a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover"><i class="fas fa-shopping-cart text-xl"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <main class="pt-16">
+        <div class="banner-image flex items-center justify-center">
+            <div class="text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Brico-Obra</h1>
+                <div class="md:hidden w-full mb-8">
+                    <div class="relative">
+                        <input type="text" placeholder="O que procura na Brico-Obra?" class="w-full py-3 px-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent search-bar">
+                        <button class="absolute right-0 top-0 h-full px-6 text-gray-500 hover:text-blue-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Descubra quem somos, e o que temos para lhe oferecer!</p>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">Explorar Agora</button>
+            </div>
+        </div>
+
+        <!-- Featured Categories -->
+        <div class="container mx-auto px-6 py-16">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Categorias em Destaque</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-laptop text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Tecnologia</h3>
+                        <p class="text-gray-600">Os mais recentes dispositivos e gadgets</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                        <i class="fas fa-tshirt text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Moda</h3>
+                        <p class="text-gray-600">Estilo e conforto para todas as ocasiões</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-yellow-400 to-red-500 flex items-center justify-center">
+                        <i class="fas fa-home text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Casa</h3>
+                        <p class="text-gray-600">Tudo para tornar seu lar mais aconchegante</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Moderno</h3>
+                    <p class="text-gray-400">Sua plataforma para descobrir produtos e serviços de qualidade.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Início</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Produtos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sobre Nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ajuda</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Envio & Devoluções</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i> São Paulo, Brasil</p>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i> (11) 1234-5678</p>
+                    <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i> contato@moderno.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Moderno. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>

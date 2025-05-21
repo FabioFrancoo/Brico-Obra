@@ -1,0 +1,16 @@
+.banner-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images/main_banner.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+}
+
+.search-bar {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon-hover:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
