@@ -6,11 +6,11 @@
     <title>Brico-Obra: Materiais de Bricolagem e Construção</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="css\index.css" />
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Header/Navigation -->
-<header class="fixed w-full bg-white bg-opacity-90 backdrop-blur-sm z-50 shadow-sm">
+<header class="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
         <!-- Logo -->
         <div class="flex items-center">
@@ -41,7 +41,7 @@
                 <span class="text-sm text-gray-600">Carrinho</span>
             </div>
             <div class="flex flex-col items-center">
-                <a href="signIn.html    " class="text-gray-600 hover:text-blue-600 icon-hover">
+                <a href="html/signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
                     <i class="fas fa-user text-xl"></i>
                 </a>
                 <span class="text-sm text-gray-600">Iniciar sessão</span>
@@ -65,7 +65,9 @@
                     </div>
                 </div>
                 <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Descubra quem somos, e o que temos para lhe oferecer!</p>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">Explorar Agora</button>
+                <button class="banner-button">
+                    Explorar Agora <i class="fas fa-arrow-right ml-2"></i>
+                </button>
             </div>
         </div>
 
@@ -74,7 +76,7 @@
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Best-sellers do último mês</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="assets/images/media.jpg" alt="Tinta" class="w-full h-48 object-contain">
+                    <img src="assets/images/tinta_branca.jpg" alt="Tinta" class="w-full h-48 object-contain">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC</h3>
                         <p class="text-gray-600">Ref 18725826</p>
@@ -82,7 +84,7 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="assets/images/media (1).jpg" alt="Chapa" class="w-full h-48 object-contain">
+                    <img src="assets/images/chapa.jpg" alt="Chapa" class="w-full h-48 object-contain">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho</h3>
                         <p class="text-gray-600">Ref 81946410</p>
@@ -91,11 +93,41 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="assets/images/media (2).jpg" alt="Placa de Melamina" class="w-full h-48 object-contain">
+                    <img src="assets/images/placa_melamina.jpg" alt="Placa de Melamina" class="w-full h-48 object-contain">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Placa de melamina BRANCA LISA 2440X1220X19MM</h3>
-                        <p class="text-gray-600">Ref 10497095</p>
+                        <p class="text-gray-600">Ref 10497095</p>
                         <p class="text-black-600">34,18€</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="bg-gray-100 py-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nossos Serviços</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-truck text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Entrega Rápida</h3>
+                        <p class="text-gray-600">Entrega em 24-48h para a maioria dos produtos na área metropolitana.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-headset text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Atendimento Personalizado</h3>
+                        <p class="text-gray-600">Nossa equipe está pronta para ajudar com qualquer dúvida técnica.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
+                        <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-undo-alt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Devolução Fácil</h3>
+                        <p class="text-gray-600">30 dias para devolução de produtos não utilizados e em perfeito estado.</p>
                     </div>
                 </div>
             </div>
@@ -139,6 +171,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/homepage-animations.js"></script>
 </body>
 </html>

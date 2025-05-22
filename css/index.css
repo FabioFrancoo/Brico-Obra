@@ -3,7 +3,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 80vh;
+    height: 85vh;
 }
 
 .search-bar {
@@ -13,4 +13,19 @@
 .icon-hover:hover {
     transform: translateY(-3px);
     transition: all 0.3s ease;
+}
+
+/* Banner */
+.banner-button {
+    background-color: #FF6600;
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+
+.banner-button:hover {
+    background-color: #CC5200;
+    transform: scale(1.05);
 }
