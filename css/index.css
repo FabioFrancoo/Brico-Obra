@@ -17,7 +17,7 @@
 
 /* Banner */
 .banner-button {
-    background-color: #FF6600;
+    background-color: #FE7501;
     color: white;
     font-weight: bold;
     padding: 0.75rem 2rem;
@@ -26,6 +26,6 @@
 }
 
 .banner-button:hover {
-    background-color: #CC5200;
+    background-color: #FE7501;
     transform: scale(1.05);
 }
