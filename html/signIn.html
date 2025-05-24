@@ -7,105 +7,103 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
 
     <!-- Custom styles for this template -->
     <link href="/css/signin.css" rel="stylesheet" />
   </head>
-  <body class="d-flex flex-column min-vh-100">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <!-- Logo e Início -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="/assets/images/Logo.jpeg" alt="" width="40" height="40" class="d-inline-block align-top me-2" />
-          <span class="fw-bold">MinhaEmpresa</span>
+  
+  <header class="fixed-top bg-white shadow-sm z-50">
+    <div class="container-fluid d-flex justify-content-between align-items-center py-2 px-3">
+      <!-- Logo -->
+      <a class="d-flex align-items-center text-decoration-none" href="#">
+        <img src="/assets/images/Logo.jpeg" alt="Logo" width="40" height="40" class="me-2" />
+        <span class="fw-bold text-dark" style="font-size: 1.2rem;">Brico Obra</span>
+      </a>
+
+      <!-- Links e botões -->
+      <div class="d-flex align-items-center gap-3">
+        <!-- Continuar com Google -->
+        <a href="#" class="text-decoration-none text-danger d-flex align-items-center" style="font-size: 1rem;">
+          <img src="/assets/images/transferir.png" alt="Google" width="20" height="20" class="me-1" />
+          Continuar com Googl
         </a>
-        <!-- Toggler para dispositivos menores -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
-          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Itens da Navbar -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-            <li class="nav-item d-flex align-items-center">
-              <a class="nav-link d-flex align-items-center" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door me-1" viewBox="0 0 16 16">
-                  <path d="M8.354 1.146a.5.5 0 0 0-.708 0L1 7.793V14.5A1.5 1.5 0 0 0 2.5 16h3a.5.5 0 0 0 .5-.5V13h3v2.5a.5.5 0 0 0 .5.5h3a1.5 1.5 0 0 0 1.5-1.5V7.793l-6.646-6.647z"/>
-                </svg>
-                Início
-              </a>
-            </li>
-          </ul>
-          <!-- Botões de continuar com Google e Facebook -->
-          <div class="d-flex gap-2">
-            <button class="btn btn-outline-danger" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google me-1" viewBox="0 0 16 16">
-                <path d="M8.159 4.175c.182-.182.371-.358.566-.52.623-.522 1.356-.933 2.182-1.224.824-.292 1.695-.436 2.577-.436 1.795 0 3.593.544 5.009 1.56.744.464 1.426 1.028 2.006 1.687l-2.058 1.598c-.464-.572-.982-1.072-1.514-1.471-.436-.371-.889-.736-1.347-1.083-.369-.278-.748-.535-1.132-.768-.385-.232-.785-.445-1.196-.638-.83-.383-1.727-.622-2.668-.622-1.392 0-2.73.387-3.857 1.068-.431.244-.84.522-1.213.827v2.722h4.58v-2.722c-.222-.085-.44-.175-.652-.278-1.051-.456-2.226-.668-3.368-.668-1.067 0-2.095.213-3.043.603-.487.206-.962.437-1.418.695l2.213 4.473c.481-.3.998-.583 1.544-.834 1.273-.592 2.744-.943 4.167-.943z"/>
-              </svg>
-              Continuar com Google
-            </button>
-            <button class="btn btn-outline-primary" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook me-1" viewBox="0 0 16 16">
-                <path d="M8.001 2.001c-2.21 0-4 1.79-4 4v2H2v4h2v6h4v-6h3.999l.001-4H8v-2c0-.552.448-1 1-1h2V2H9c-1.105 0-2 .895-2 2v2H5v4h2v8h4v-8h2l.001-4h-2V4c0-1.105-.895-2-2-2z"/>
-              </svg>
-              Continuar com Facebook
-            </button>
+
+        <!-- Continuar com Facebook -->
+        <a href="#" class="text-decoration-none text-primary d-flex align-items-center" style="font-size: 1rem;">
+          <img src="/assets/images/transferir.jpeg" alt="Facebook" width="20" height="20" class="me-1" />
+          Continuar com Facebook
+        </a>
+
+        <a href="/index.html" class="text-decoration-none text-secondary d-flex flex-column align-items-center" style="font-size: 1rem;">
+          <i class="fas fa-home mb-1" style="font-size: 1.5rem;"></i>
+          <span class="text-sm text-gray-600">Início</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <body class="d-flex align-items-center vh-100">
+    <div class="container">
+      <div class="row">
+        <!-- Left Side -->
+        <div class="col-md-6">
+          <!-- Buttons for Client and Supplier -->
+          <div class="d-flex justify-content-center mb-4">
+            <button class="btn btn-primary me-2">Cliente</button>
+            <button class="btn btn-secondary">Fornecedor</button>
+          </div>
+
+          <!-- Login Form -->
+          <div class="mb-4">
+            <h3 class="text-center">Login</h3>
+            <form>
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="loginEmail" placeholder="Digite seu email" required />
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua senha" required />
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            </form>
+          </div>
+
+          <!-- Create Account Form -->
+          <div>
+            <h3 class="text-center">Criar Conta</h3>
+            <form>
+              <div class="mb-3">
+                <label for="firstName" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Digite seu nome" required />
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Apelido</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Digite seu apelido" required />
+              </div>
+              <div class="mb-3">
+                <label for="createEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="createEmail" placeholder="Digite seu email" required />
+              </div>
+              <div class="mb-3">
+                <label for="createPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="createPassword" placeholder="Digite sua senha" required />
+              </div>
+              <button type="submit" class="btn btn-success w-100">Criar Conta</button>
+            </form>
           </div>
         </div>
+
+        <!-- Right Side -->
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+          <img src="/assets/images/Logo.jpeg" alt="Logo" class="img-fluid" style="max-width: 80%;" />
+        </div>
       </div>
-    </nav>
-
-    <!-- Main Sign-in Form -->
-    <main class="flex-fill d-flex align-items-center justify-content-center my-4">
-      <div class="w-100" style="max-width: 400px;">
-        <form class="form-signin text-center p-4 shadow rounded bg-light">
-          <img class="mb-4" src="/assets/images/Logo.jpeg" alt="" width="90" height="90" />
-          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
-            <label for="floatingPassword">Password</label>
-          </div>
-
-          <div class="checkbox mb-3 text-start">
-            <label>
-              <input type="checkbox" value="remember-me" /> Remember me
-            </label>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-          <p class="mt-3 mb-3 text-muted">© 2017–2021</p>
-        </form>
-      </div>
-    </main>
-
-    <!-- Botões adicionais -->
-    <div class="container my-4 d-flex justify-content-center gap-3">
-      <button class="btn btn-success" type="button">Cliente</button>
-      <button class="btn btn-info" type="button">Fornecedor</button>
     </div>
-
+  </body>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
