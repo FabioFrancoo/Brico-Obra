@@ -1,0 +1,18 @@
+.hero-pattern {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c');
+    background-size: cover;
+    background-position: center;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.employee-card:hover img {
+    transform: scale(1.05);
+}
+
+.campaign-card:hover .campaign-overlay {
+    opacity: 1;
+}

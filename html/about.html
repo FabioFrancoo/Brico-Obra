@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | Empresa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/about.css" />
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header -->
+    <header class="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center animate-on-load">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="../assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+            </div>
+            <!-- Search Bar (desktop) -->
+            <div class="hidden md:block w-1/3 mx-8">
+                <div class="relative">
+                    <input type="text" placeholder="O que procura na Brico-Obra?" class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button class="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <div class="flex flex-col items-center">
+                    <a href="html/signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/home.png" alt="Ícone de homepage" class="h-6 w-6">
+                    </a>
+                    <span class="text-sm text-black">Início</span>
+                </div>
+                <div class="flex flex-col items-center -mt-1">
+                    <a href="html/carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
+                    </a>
+                    <span class="text-sm text-black">Carrinho</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <a href="html/signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/user_black.png" alt="Ícone de utilizador" class="h-6 w-6">
+                    </a>
+                    <span class="text-sm text-black">Iniciar sessão</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-24 pb-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-screen-xl"> <div class="flex flex-col md:flex-row items-center justify-center"> <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 text-center md:text-left"> <h2 class="text-3xl font-bold mb-6">Quem somos?</h2>
+                    <p class="text-lg mb-6">A Brico-Obra é uma plataforma digital que agrega vários fornecedores do setor da construção e da bricolagem e, assim, é capaz de oferecer uma variedade de produtos, desde ferramentas manuais até materiais para grandes construções.</p>
+                </div>
+                <div class="md:w-1/2 flex justify-center md:justify-center"> <img src="../assets/images/quem_somos.png" alt="Quem Somos" class="rounded-lg shadow-xl w-3/4 md:w-2/3 h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discount Campaigns -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Campanhas de Desconto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Campaign 1 -->
+                <div class="campaign-card relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a" alt="Campanha 1" class="w-full h-64 object-cover">
+                    <div class="campaign-overlay absolute inset-0 bg-indigo-800 bg-opacity-80 flex flex-col justify-center items-center text-white p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Verão 2023</h3>
+                        <p class="mb-4 text-center">Descontos de até 40% em toda a coleção de verão!</p>
+                        <button class="bg-white text-indigo-800 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition">Saiba Mais</button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">Verão 2023</h3>
+                        <p class="text-gray-600">Até 40% de desconto</p>
+                    </div>
+                </div>
+                
+                <!-- Campaign 2 -->
+                <div class="campaign-card relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Campanha 2" class="w-full h-64 object-cover">
+                    <div class="campaign-overlay absolute inset-0 bg-indigo-800 bg-opacity-80 flex flex-col justify-center items-center text-white p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Black Friday</h3>
+                        <p class="mb-4 text-center">Ofertas exclusivas por tempo limitado!</p>
+                        <button class="bg-white text-indigo-800 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition">Saiba Mais</button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">Black Friday</h3>
+                        <p class="text-gray-600">Ofertas exclusivas</p>
+                    </div>
+                </div>
+                
+                <!-- Campaign 3 -->
+                <div class="campaign-card relative overflow-hidden rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622" alt="Campanha 3" class="w-full h-64 object-cover">
+                    <div class="campaign-overlay absolute inset-0 bg-indigo-800 bg-opacity-80 flex flex-col justify-center items-center text-white p-6 opacity-0 transition-opacity duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Aniversário</h3>
+                        <p class="mb-4 text-center">Celebre conosco com 30% de desconto em tudo!</p>
+                        <button class="bg-white text-indigo-800 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition">Saiba Mais</button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold mb-2">Aniversário</h3>
+                        <p class="text-gray-600">30% em tudo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Employees of the Month -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Funcionários do Mês</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center md:items-start gap-12">
+                <!-- Employee 1 -->
+                <div class="employee-card text-center max-w-xs">
+                    <div class="rounded-full overflow-hidden mb-6 shadow-lg w-48 h-48 mx-auto">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="Funcionário 1" class="w-full h-full object-cover transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Carlos Silva</h3>
+                    <p class="text-indigo-600 font-medium mb-2">Gerente de Vendas</p>
+                    <p class="text-gray-600 mb-4">"Carlos superou todas as metas deste mês com excelência no atendimento."</p>
+                    <div class="flex justify-center space-x-2">
+                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Employee 2 -->
+                <div class="employee-card text-center max-w-xs">
+                    <div class="rounded-full overflow-hidden mb-6 shadow-lg w-48 h-48 mx-auto">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" alt="Funcionário 2" class="w-full h-full object-cover transition-transform duration-300">
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ana Oliveira</h3>
+                    <p class="text-indigo-600 font-medium mb-2">Designer Sénior</p>
+                    <p class="text-gray-600 mb-4">"Ana liderou o projeto mais importante do trimestre com criatividade e dedicação."</p>
+                    <div class="flex justify-center space-x-2">
+                        <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">O Que Nossos Clientes Dizem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                    </div>
+                    <p class="text-gray-700 mb-6">"Excelente atendimento e produtos de alta qualidade. Recomendo a todos que buscam seriedade e comprometimento."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce" alt="Cliente 1" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Roberto Santos</h4>
+                            <p class="text-gray-600 text-sm">Cliente desde 2018</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                    </div>
+                    <p class="text-gray-700 mb-6">"A equipe foi incrível em me ajudar a encontrar exatamente o que eu precisava. O pós-venda também é impecável!"</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Cliente 2" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Juliana Costa</h4>
+                            <p class="text-gray-600 text-sm">Cliente desde 2020</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-lg shadow-md transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                    </div>
+                    <p class="text-gray-700 mb-6">"Nunca tinha tido uma experiência tão boa com uma empresa. Superaram todas as minhas expectativas em cada detalhe."</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7" alt="Cliente 3" class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-bold">Marcos Ribeiro</h4>
+                            <p class="text-gray-600 text-sm">Cliente desde 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="py-16 bg-indigo-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Junte-se a Nós</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Estamos sempre buscando talentos para fazer parte do nosso time. Venha crescer conosco!</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#" class="bg-white text-indigo-800 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition duration-300">Ver Vagas</a>
+                <a href="#" class="border-2 border-white px-8 py-3 rounded-full font-bold hover:bg-indigo-800 hover:bg-opacity-20 transition duration-300">Enviar Currículo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-900 py-12">
+        <div class="container mx-auto px-36">
+            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+                    <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="md:text-left align-contacts">
+                    <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
+                    <p class="text-gray-600 mb-2">
+                        <span class="font-semibold">Email:</span> brico.obra@sapo.pt
+                    </p>
+                    <p class="text-gray-600">
+                        <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for mobile menu toggle (could be expanded)
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            const nav = document.querySelector('nav.hidden');
+            if (nav) {
+                nav.classList.toggle('hidden');
+                nav.classList.toggle('flex');
+                nav.classList.toggle('flex-col');
+                nav.classList.toggle('absolute');
+                nav.classList.toggle('top-16');
+                nav.classList.toggle('left-0');
+                nav.classList.toggle('right-0');
+                nav.classList.toggle('bg-white');
+                nav.classList.toggle('p-4');
+                nav.classList.toggle('shadow-md');
+                nav.classList.toggle('space-y-4');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* Sugestões de produtos */
+.suggestions {
+    width: 80%;
+    margin: 40px auto;
+  }
+  
+  .suggestions h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  
+  .suggestion-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .suggestion-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .product-name {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .suggestion-card .product-price {
+    color: #e60000;
+    font-weight: bold;
+  }
+  .rating {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #f5a623; /* cor dourada para as estrelas */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .stars {
+    letter-spacing: 3px;
+  }
+  
+  .reviews {
+    color: #555;
+    font-size: 1em;
+  }
+  
+    

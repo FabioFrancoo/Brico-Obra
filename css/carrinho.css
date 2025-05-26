@@ -1,0 +1,262 @@
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Cabeçalho e navegação */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #FE7501;
+    font-weight: bold;
+}
+
+/* Barra de progresso */
+.progress-steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 30px;
+    position: relative;
+}
+
+.progress-steps::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #ddd;
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.step.active .step-number {
+    background-color: #FE7501;
+}
+
+.step-text {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Conteúdo principal */
+.cart-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.item-image {
+    width: 80px;
+    height: 80px;
+    background-color: #f5f5f5;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    border-radius: 4px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-ref {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.item-price {
+    font-weight: bold;
+    color: #FE7501;
+    margin-bottom: 10px;
+}
+
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.quantity-btn {
+    background-color: #f5f5f5;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.quantity-input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 5px;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #ff5252;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Seção de totais */
+.totals-section {
+    margin-top: 30px;
+    border-top: 2px solid #FE7501;
+    padding-top: 20px;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.totals-label {
+    font-weight: bold;
+}
+
+.totals-value {
+    font-weight: bold;
+    color: #333;
+}
+
+.total-row {
+    font-size: 1.2em;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid #FE7501;
+}
+
+.checkout-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #FE7501;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 0;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #e06a00;
+}
+
+/* Rodapé */
+.divider {
+    border-top: 2px solid #FE7501;
+    margin: 20px 0;
+}
+
+.store-info {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+.store-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #FE7501;
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.contact-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}

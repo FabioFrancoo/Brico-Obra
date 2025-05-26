@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brico-Obra: Materiais de Bricolagem e Construção</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="w-full bg-white backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center animate-on-load">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+            </div>
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <div class="flex flex-col items-center">
+                    <a href="index_loged.html" class="text-decoration-none text-secondary d-flex flex-column align-items-center" style="font-size: 1rem;">
+                        <i class="fas fa-home mb-1" style="font-size: 1.5rem;"></i>
+                        <span class="text-sm text-gray-600">Início</span>
+                      </a>
+                </div>
+                <div class="flex flex-col items-center -mt-1">
+                    <a href="html/carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
+                    </a>
+                    <span class="text-sm text-black">Carrinho</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <a href="../index.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="assets/icons/logout.png" alt="Ícone de utilizador" class="h-6 w-6">
+                    </a>
+                    <span class="text-sm text-black">Log Out</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="container mx-auto mt-20 px-6">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-2xl font-bold mb-4">Conta do Cliente</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- User Information -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">Informações do Utilizador</h2>
+                    <div class="flex items-center mb-4">
+                        <img src="assets/images/logged_user.jpg" alt="Imagem do Utilizador" class="h-16 w-16 rounded-full mr-4">
+                        <div>
+                            <p><strong>Nome:</strong> Ricardo</p>
+                            <p><strong>Apelido:</strong> Fernandes</p>
+                            <p><strong>Email:</strong> r.fernandes@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Orders -->
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h2 class="text-xl font-semibold mb-2">Pedidos Realizados</h2>
+                    <ul class="space-y-4">
+                        <li class="border-b pb-4">
+                            <p><strong>Produto:</strong> ---- </p>
+                            <p><strong>Quantidade:</strong> -- </p>
+                            <p><strong>Estado:</strong> ------ </p>
+                            <p><strong>Previsão de Entrega:</strong> --/--/20--</p>
+                        </li>
+                        <!--<li class="border-b pb-4">
+                            <p><strong>Produto:</strong> Caixa de Parafusos</p>
+                            <p><strong>Quantidade:</strong> 1</p>
+                            <p><strong>Estado:</strong> Em Processamento</p>
+                            <p><strong>Previsão de Entrega:</strong> 20/10/2025</p>
+                        </li>
+                        <li>
+                            <p><strong>Produto:</strong> Serra Elétrica</p>
+                            <p><strong>Quantidade:</strong> 1</p>
+                            <p><strong>Estado:</strong> Entregue</p>
+                            <p><strong>Previsão de Entrega:</strong> 10/10/2025</p>
+                        </li>
+                    -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-900 py-12">
+        <div class="container mx-auto px-36">
+            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+                    <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="md:text-left align-contacts">
+                    <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
+                    <p class="text-gray-600 mb-2">
+                        <span class="font-semibold">Email:</span> brico.obra@sapo.pt
+                    </p>
+                    <p class="text-gray-600">
+                        <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/loadScrollAnimations.js"></script>
+</body>
+</html>

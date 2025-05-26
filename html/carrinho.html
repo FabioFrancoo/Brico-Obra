@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/carrinho.css"/>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center animate-on-load">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="../assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+            </div>
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <div class="flex flex-col items-center">
+                    <a href="html/signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/home.png" alt="Ícone de homepage" class="h-6 w-6">
+                    </a>
+                    <span class="text-sm text-black">Início</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="progress-steps">
+            <div class="step active">
+                <div class="step-number">1</div>
+                <div class="step-text">Carrinho</div>
+            </div>
+            <div class="step inactive">
+                <div class="step-number">2</div>
+                <div class="step-text">Dados da encomenda</div>
+            </div>
+            <div class="step inactive">
+                <div class="step-number">3</div>
+                <div class="step-text">Finalização</div>
+            </div>
+        </div>
+        
+        <h1 class="cart-title">O meu carrinho</h1>
+        
+        <div class="cart-item">
+            <div class="item-image">Imagem</div>
+            <div class="item-details">
+                <div class="item-name">Capacete DELTAPLUS</div>
+                <div class="item-ref">Ref 82394287</div>
+                <div class="item-price">19.99 €</div>
+            </div>
+        </div>
+
+        <!-- Total -->
+        <div class="totals-section">
+            <div class="totals-row">
+                <span class="totals-label">SubTotal</span>
+                <span class="totals-value">19.99 €</span>
+            </div>
+            <div class="totals-row">
+                <span class="totals-label">Taxa de entrega</span>
+                <span class="totals-value">2.99 €</span>
+            </div>
+            <div class="totals-row total-row">
+                <span class="totals-label">Total</span>
+                <span class="totals-value">22.80 €</span>
+            </div>
+        </div>
+
+        <a href="#" class="checkout-button">Preencher dados da encomenda</a>
+
+        <div class="divider"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-900 py-12">
+        <div class="container mx-auto px-36">
+            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+                    <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="md:text-left align-contacts">
+                    <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
+                    <p class="text-gray-600 mb-2">
+                        <span class="font-semibold">Email:</span> brico.obra@sapo.pt
+                    </p>
+                    <p class="text-gray-600">
+                        <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
