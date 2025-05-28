@@ -5,15 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Capacete DELTAPLUS  - Brico-Obra </title>
   <link rel="stylesheet" href="../css/produto.css">
+  
 </head>
 <body>
-
+  <!-- Header -->
+  <header class="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center animate-on-load">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <img src="assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+            <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+        </div>
+        <!-- Search Bar (desktop) -->
+        <div class="hidden md:block w-1/3 mx-8">
+            <div class="relative">
+                <input type="text" placeholder="O que procura na Brico-Obra?" class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <button class="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-blue-600">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Icons -->
+        <div class="flex items-center space-x-6">
+            <div class="flex flex-col items-center">
+                <a href="html/about.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                    <img src="assets/icons/info.png" alt="Ícone de info" class="h-6 w-6">
+                </a>
+                <span class="text-sm text-black">Sobre Nós</span>
+            </div>
+            <div class="flex flex-col items-center -mt-1">
+                <a href="html/carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                    <img src="assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
+                </a>
+                <span class="text-sm text-black">Carrinho</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <a href="html/signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                    <img src="assets/icons/user_black.png" alt="Ícone de utilizador" class="h-6 w-6">
+                </a>
+                <span class="text-sm text-black">Iniciar sessão</span>
+            </div>
+        </div>
+    </div>
+</header>
   <div class="container">
     <h1>Capacete DELTAPLUS </h1>
 
     <div class="product-info">
       <div class="product-image">
-        <img src="../assets/images/capacete.jpg" alt="Capacete DELTAPLUS">
+        <img src="/assets/images/tinta_branca.jpg" alt="Capacete DELTAPLUS">
       </div>
       <div class="product-details">
         <h2>Descrição do Produto</h2>
@@ -44,7 +84,7 @@
 
       <!-- Produto 1 -->
       <div class="suggestion-card">
-        <img src="https://via.placeholder.com/150" alt="Produto 1">
+        <img src="../assets/images/tinta_branca.jpg" alt="Produto 1">
         <p class="product-name">Tinta Acrílica 5L</p>
         <p class="product-price">€14,90</p>
       </div>

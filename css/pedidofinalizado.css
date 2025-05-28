@@ -1,0 +1,16 @@
+.buttons-container {
+    text-align: center;
+}
+
+.buttons-container a.btn-payment {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    background-color: #FE7501;
+    border-radius: 4px;
+    cursor: pointer;
+}

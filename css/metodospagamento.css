@@ -1,0 +1,22 @@
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* space between mbway and mb */
+    width: 100%;
+    background-color: transparent; /* for debugging, can be removed */
+}
+
+.payment-methods .item-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100px;
+}
+
+.payment-methods img {
+    max-height: 50px; /* adjust size as needed */
+    width: auto;
+    cursor: pointer;
+    display: block;
+}
