@@ -1,7 +1,11 @@
-.hero-pattern {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c');
-    background-size: cover;
-    background-position: center;
+/* Navigation/search bar */
+.search-bar {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon-hover:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
 }
 
 .testimonial-card:hover {
@@ -14,5 +18,44 @@
 }
 
 .campaign-card:hover .campaign-overlay {
+    background-color: rgba(254, 117, 1, 0.8);
     opacity: 1;
+}
+
+.campaign-button {
+    color: #FE7501;
+}
+
+.job-title {
+    color: #FE7501;
+}
+
+.join-us {
+    background-color: #FE7501;
+}
+
+.client-button {
+    width: 100%;
+    max-width: 240px; /* Optional: Set a max width */
+    text-align: center;
+    display: inline-block;
+    color: #FE7501;
+}
+.client-button:hover {
+    background-color: #f3f4f6;
+    color: #e06a00;
+    transform: scale(1.05);
+}
+
+.supplier-button {
+    width: 100%;
+    max-width: 240px; /* Optional: Set a max width */
+    text-align: center;
+    display: inline-block;
+}
+
+.supplier-button:hover {
+    background-color: #e06a00;
+    color: #f3f4f6;
+    transform: scale(1.05);
 }
