@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publicar Produto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="produto.js"></script> <!-- JavaScript separado -->
+</head>
+<body class="bg-gray-100">
+    <header class="w-full bg-white backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center animate-on-load">
+            <div class="flex items-center">
+                <img src="../assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <div class="flex flex-col items-center -mt-1">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/paper-plane.png" alt="Ícone de carrinho" class="h-7 w-7">
+                    </a>
+                    <span class="text-sm text-black">Publicar Produto</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <a href="contaFornecedor.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/user_black.png" alt="Ícone de utilizador" class="h-6 w-6">
+                    </a>
+                    <span class="text-sm text-black">Conta</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-5xl mx-auto p-8">
+        <!-- Seção acima do formulário com título e imagem do fornecedor -->
+        <div class="flex items-center mb-6 space-x-4">
+            <img src="../assets/images/fornecedor.jpg" alt="Imagem do Fornecedor" class="w-20 h-20 rounded-full object-cover border-2 border-gray-300" />
+            <h2 class="text-2xl font-semibold text-gray-800">Publicar novo produto - Fornecedor XYZ</h2>
+        </div>
+
+        <!-- Área do upload e formulário -->
+        <div class="flex flex-col md:flex-row gap-8 bg-white p-8 rounded-xl shadow-lg">
+            <!-- Upload da imagem -->
+            <div class="w-full md:w-1/2 flex items-center justify-center">
+                <label for="productImage" class="w-full h-64 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded cursor-pointer bg-gray-50 hover:bg-gray-100 transition">
+                    <span class="text-gray-500 mb-2">Carregar ficheiros</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    <input id="productImage" type="file" accept="image/*" class="hidden" />
+                </label>
+            </div>
+
+            <!-- Formulário -->
+            <div class="w-full md:w-1/2 space-y-2">
+                <input id="productName" type="text" placeholder="Título" class="w-full p-3 border rounded bg-gray-100" required />
+                <p id="errorName" class="text-red-600 text-sm mt-1"></p>
+
+                <input id="productPrice" type="number" step="0.01" placeholder="Preço (€)" class="w-full p-3 border rounded bg-gray-100" required />
+                <p id="errorPrice" class="text-red-600 text-sm mt-1"></p>
+
+                <input id="productPricePerUnit" type="number" step="0.01" placeholder="Preço por unidade (se aplicável)" class="w-full p-3 border rounded bg-gray-100" />
+                <p id="errorPricePerUnit" class="text-red-600 text-sm mt-1"></p>
+
+                <input id="productPricePerLitre" type="number" step="0.01" placeholder="Preço por litro (se aplicável)" class="w-full p-3 border rounded bg-gray-100" />
+                <p id="errorPricePerLitre" class="text-red-600 text-sm mt-1"></p>
+
+                <input id="productStock" type="number" placeholder="Quantidade em stock" class="w-full p-3 border rounded bg-gray-100" required />
+                <p id="errorStock" class="text-red-600 text-sm mt-1"></p>
+
+                <textarea id="productDescription" placeholder="Descrição" class="w-full p-3 border rounded bg-gray-100" rows="4" required></textarea>
+                <p id="errorDescription" class="text-red-600 text-sm mt-1"></p>
+
+            </div>
+        </div>
+
+        <!-- Botão centralizado -->
+        <div class="flex justify-center mt-6">
+            <button id="submitBtn" class="bg-black text-white py-3 px-8 rounded hover:bg-gray-800 transition">
+                Publicar artigo
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-900 py-12">
+        <div class="container mx-auto px-36">
+            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+                    <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="md:text-left align-contacts">
+                    <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
+                    <p class="text-gray-600 mb-2">
+                        <span class="font-semibold">Email:</span> brico.obra@sapo.pt
+                    </p>
+                    <p class="text-gray-600">
+                        <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/publicarProduto.js"></script>
+</body>
+</html>

@@ -35,6 +35,73 @@
 
     <!-- Main Content -->
     <main class="pt-16">
+
+        <!-------------------------------------- TESTE DOS PRODUTOS PUBLICADOSS ---------------------------------->
+        <!---depois vou formatar melhor isto-->
+        <!--Ass: Fabio-->
+        <h1 class="text-3xl font-bold mb-8">Produtos Publicados</h1>
+
+    <div id="productsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Aqui os produtos vão ser inseridos via JS -->
+    </div>
+
+    <script>
+        // Função para formatar preço em euros
+        function formatPrice(price) {
+        return '€ ' + Number(price).toFixed(2).replace('.', ',');
+        }
+
+        function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = "bg-white p-4 rounded shadow hover:shadow-lg transition";
+
+        // Imagem (se existir)
+        let imageHTML = '';
+        if(product.image) {
+            imageHTML = `<img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover rounded mb-4">`;
+        } else {
+            imageHTML = `<div class="w-full h-40 bg-gray-200 flex items-center justify-center rounded mb-4 text-gray-500">Sem imagem</div>`;
+        }
+
+        card.innerHTML = `
+            ${imageHTML}
+            <h2 class="text-xl font-semibold mb-2">${product.name}</h2>
+            <p class="text-gray-700 mb-1"><strong>Preço:</strong> ${formatPrice(product.price)}</p>
+            ${product.pricePerUnit ? `<p class="text-gray-700 mb-1"><strong>Preço por unidade:</strong> ${formatPrice(product.pricePerUnit)}</p>` : ''}
+            ${product.pricePerLitre ? `<p class="text-gray-700 mb-1"><strong>Preço por litro:</strong> ${formatPrice(product.pricePerLitre)}</p>` : ''}
+            <p class="text-gray-700 mb-1"><strong>Categoria:</strong> ${product.category || 'Sem categoria'}</p>
+            <p class="text-gray-700 mb-1"><strong>Stock:</strong> ${product.stock}</p>
+            <p class="text-gray-600 mt-2">${product.description}</p>
+        `;
+        return card;
+        }
+
+        // Obter produtos do localStorage
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+
+        const container = document.getElementById('productsContainer');
+
+        if (products.length === 0) {
+        container.innerHTML = '<p class="text-gray-600">Nenhum produto publicado ainda.</p>';
+        } else {
+        products.forEach(product => {
+            const card = createProductCard(product);
+            container.appendChild(card);
+        });
+        }
+    </script>
+<!-------------------------------------- TESTE DOS PRODUTOS PUBLICADOSS ---------------------------------->
+
+
+
+
+
+
+
+
+
+
+
         <div class="max-w-screen-xl mx-auto px-6 py-16">
             <div class="flex justify-between items-center mb-12 animate-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Bem-vindo aos teus produtos</h2>
