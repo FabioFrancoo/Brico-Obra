@@ -113,8 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let allProductsToDisplay = [...initialFixedProducts, ...uniqueDynamicProducts];
 
+    // Initialize localStorage with fixed products if it's empty or doesn't exist
     if (!localStorage.getItem("bricoObraSupplierProducts") || JSON.parse(localStorage.getItem("bricoObraSupplierProducts")).length === 0) {
         localStorage.setItem("bricoObraSupplierProducts", JSON.stringify(initialFixedProducts));
+        allProductsToDisplay = initialFixedProducts; // Ensure we display them immediately
     }
 
 
@@ -147,7 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${pricePerLitreHtml}
                 ${descriptionHtml}
                 <p class="font-bold mt-2">Stock: ${product.stock}</p>
-                <div class="mt-4 pt-4 border-t border-gray-200 text-center">
+                <div class="mt-4 pt-4 border-t border-gray-200 text-center flex justify-around">
+                    <button data-product-id="${product.id}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition edit-btn">Editar</button>
                     <button data-product-id="${product.id}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition delete-btn">Remover</button>
                 </div>
             </div>
@@ -159,6 +162,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target.classList.contains('delete-btn')) {
             const productIdToDelete = event.target.dataset.productId;
             deleteProduct(productIdToDelete);
+        } else if (event.target.classList.contains('edit-btn')) { // Added 'edit-btn' listener
+            const productIdToEdit = event.target.dataset.productId;
+            // Redirect to the publish/edit page with the product ID as a URL parameter
+            window.location.href = `publicarProduto.html?id=${productIdToEdit}`;
         }
     });
 
@@ -166,12 +173,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let productsInStorage = JSON.parse(localStorage.getItem("bricoObraSupplierProducts")) || [];
         const initialLength = productsInStorage.length;
 
+        // Filter out the product to delete. Use loose comparison (==) for string/number IDs.
         productsInStorage = productsInStorage.filter(product => product.id != idToDelete);
 
         if (productsInStorage.length < initialLength) {
             localStorage.setItem("bricoObraSupplierProducts", JSON.stringify(productsInStorage));
             alert("Produto removido com sucesso!");
-            location.reload();
+            location.reload(); // Reload the page to reflect changes
         } else {
             alert("Erro: Produto não encontrado em seu inventário.");
         }
