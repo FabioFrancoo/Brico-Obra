@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brico-Obra: Materiais de Bricolagem e Construção</title>
+    <title>Meus Produtos</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-gray-50 font-sans">
-    <!-- Header -->
+<body class="bg-gray-100">
     <header class="w-full bg-white backdrop-blur-sm z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center animate-on-load">
             <div class="flex items-center">
@@ -18,8 +16,8 @@
             </div>
             <div class="flex items-center space-x-6">
                 <div class="flex flex-col items-center -mt-1">
-                    <a href="#" class="text-gray-600 hover:text-blue-600 icon-hover">
-                        <img src="../assets/icons/paper-plane.png" alt="Ícone de carrinho" class="h-7 w-7">
+                    <a href="publicarProduto.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/paper-plane.png" alt="Ícone de Publicar Produto" class="h-7 w-7">
                     </a>
                     <span class="text-sm text-black">Publicar Produto</span>
                 </div>
@@ -33,184 +31,22 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="pt-16">
+    <div class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="flex justify-between items-center mb-12 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Bem-vindo aos teus produtos</h2>
+            <img src="../assets/images/goTintas.png" alt="goTintas Logo" class="h-12 md:h-16 ml-4">
+        </div>
 
-        <!-------------------------------------- TESTE DOS PRODUTOS PUBLICADOSS ---------------------------------->
-        <!---depois vou formatar melhor isto-->
-        <!--Ass: Fabio-->
-        <h1 class="text-3xl font-bold mb-8">Produtos Publicados</h1>
+        <div id="productListings" class="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center px-6 md:px-12 animate-on-scroll">
+            </div>
 
-    <div id="productsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Aqui os produtos vão ser inseridos via JS -->
+        <div id="noProductsMessage" class="text-center text-gray-500 mt-12 hidden">
+            <p class="text-lg">Ainda não publicou nenhum produto.</p>
+            <p>Comece a vender <a href="publicarProduto.html" class="text-blue-600 hover:underline">aqui</a>!</p>
+        </div>
     </div>
 
-    <script>
-        // Função para formatar preço em euros
-        function formatPrice(price) {
-        return '€ ' + Number(price).toFixed(2).replace('.', ',');
-        }
-
-        function createProductCard(product) {
-        const card = document.createElement('div');
-        card.className = "bg-white p-4 rounded shadow hover:shadow-lg transition";
-
-        // Imagem (se existir)
-        let imageHTML = '';
-        if(product.image) {
-            imageHTML = `<img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover rounded mb-4">`;
-        } else {
-            imageHTML = `<div class="w-full h-40 bg-gray-200 flex items-center justify-center rounded mb-4 text-gray-500">Sem imagem</div>`;
-        }
-
-        card.innerHTML = `
-            ${imageHTML}
-            <h2 class="text-xl font-semibold mb-2">${product.name}</h2>
-            <p class="text-gray-700 mb-1"><strong>Preço:</strong> ${formatPrice(product.price)}</p>
-            ${product.pricePerUnit ? `<p class="text-gray-700 mb-1"><strong>Preço por unidade:</strong> ${formatPrice(product.pricePerUnit)}</p>` : ''}
-            ${product.pricePerLitre ? `<p class="text-gray-700 mb-1"><strong>Preço por litro:</strong> ${formatPrice(product.pricePerLitre)}</p>` : ''}
-            <p class="text-gray-700 mb-1"><strong>Categoria:</strong> ${product.category || 'Sem categoria'}</p>
-            <p class="text-gray-700 mb-1"><strong>Stock:</strong> ${product.stock}</p>
-            <p class="text-gray-600 mt-2">${product.description}</p>
-        `;
-        return card;
-        }
-
-        // Obter produtos do localStorage
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-
-        const container = document.getElementById('productsContainer');
-
-        if (products.length === 0) {
-        container.innerHTML = '<p class="text-gray-600">Nenhum produto publicado ainda.</p>';
-        } else {
-        products.forEach(product => {
-            const card = createProductCard(product);
-            container.appendChild(card);
-        });
-        }
-    </script>
-<!-------------------------------------- TESTE DOS PRODUTOS PUBLICADOSS ---------------------------------->
-
-
-
-
-
-
-
-
-
-
-
-        <div class="max-w-screen-xl mx-auto px-6 py-16">
-            <div class="flex justify-between items-center mb-12 animate-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Bem-vindo aos teus produtos</h2>
-                <img src="../assets/images/goTintas.png" alt="goTintas Logo" class="h-12 md:h-16 ml-4">
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center px-6 md:px-12 animate-on-scroll">
-
-                <!-- Cartões de Produto -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/pincel_caiar.png" alt="Pincel" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Pincel caiar com cabo<br><br></h3>
-                        <p class="text-gray-600">Ref 84684317</p>
-                        <p class="text-black-600">11,02€</p>
-                        <p class="font-bold">Stock: 5</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/rolo.jpg" alt="Rolo" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Rolo Dexter universal paredes e tetos 25cm</h3>
-                        <p class="text-gray-600">Ref 82799953</p>
-                        <p class="text-black-600">21,99€/m²</p>
-                        <p class="font-bold">Stock: 12</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/esmalte.png" alt="Esmalte" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Esmalte direto sobre ferrugem. Acetinado. Spray. PROANOX. Branco</h3>
-                        <p class="text-gray-600">Ref 82401638</p>
-                        <p class="text-black-600">14,97€</p>
-                        <p class="font-bold">Stock: 3</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/esmalte (2).png" alt="Esmalte" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Esmalte poliuretano 2 componentes. 10l brilhante. 1.5l branco</h3>
-                        <p class="text-gray-600">Ref 82393193</p>
-                        <p class="text-black-600">218,01€</p>
-                        <p class="text-gray-600 text-sm">Ou 18,96€ / Litro</p>
-                        <p class="font-bold">Stock: 8</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/verniz.png" alt="Verniz" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Verniz interior aquoso acetinado e transparente 0,25l</h3>
-                        <p class="text-gray-600">Ref 82179513</p>
-                        <p class="text-black-600">7,73€</p>
-                        <p class="text-gray-600 text-sm">Ou 30,92€ / Litro</p>
-                        <p class="font-bold">Stock: 10</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/rolo_fitacola.png" alt="Placa Melamina" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Rolo fita Semi-Crep 45m x 48 mm <br><br></h3>
-                        <p class="text-gray-600">Ref 82556833</p>
-                        <p class="text-black-600">3,44€</p>
-                        <p class="font-bold">Stock: 48</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/tinta_plastica.png" alt="Placa Melamina" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Tinta plástica antibolor antiverdete. Mate seda branca 4L. REVEPROA</h3>
-                        <p class="text-gray-600">Ref 84684317</p>
-                        <p class="text-black-600">48,69€</p>
-                        <p class="text-gray-600 text-sm">Ou 12,17€ / Litro</p>
-                        <p class="font-bold">Stock: 21</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/misturador.png" alt="Placa Melamina" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Misturador 14Mm/1600W Werku WK400130</h3>
-                        <p class="text-gray-600">Ref 82799953</p>
-                        <p class="text-black-600">142,01€</p>
-                        <p class="font-bold">Stock: 0</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full">
-                    <img src="../assets/images/oleo.png" alt="Placa Melamina" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-l font-semibold text-gray-800 mb-2">Óleo para teca. Proteção e nutrição para a madeira transparente 0,75L</h3>
-                        <p class="text-gray-600">Ref 82401638</p>
-                        <p class="text-black-600">7,90€</p>
-                        <p class="text-gray-600 text-sm">Ou 10,53€ / Litro</p>
-                        <p class="font-bold">Stock: 28</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white text-gray-900 py-12">
+    <footer class="bg-white text-gray-900 py-12 mt-12">
         <div class="container mx-auto px-36">
             <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
                 <div>
@@ -240,6 +76,6 @@
         </div>
     </footer>
 
-    <script src="../js/loadScrollAnimations.js"></script>
+    <script src="../js/displayProducts.js"></script>
 </body>
 </html>
