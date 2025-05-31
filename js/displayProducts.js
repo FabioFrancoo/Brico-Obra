@@ -131,28 +131,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     allProductsToDisplay.forEach(product => {
         const productCard = document.createElement("div");
-        productCard.className = "bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full";
+        productCard.className = "bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 max-w-sm w-full flex flex-col";
 
-        // Separate price details for unit and litre
         let pricePerUnitHtml = product.pricePerUnit ? `<p class="text-gray-600 text-sm">Ou ${product.pricePerUnit.toFixed(2)}€ / unidade</p>` : '';
         let pricePerLitreHtml = product.pricePerLitre ? `<p class="text-gray-600 text-sm">Ou ${product.pricePerLitre.toFixed(2)}€ / Litro</p>` : '';
 
         const descriptionHtml = product.description ? `<p class="text-gray-700 text-sm mt-2">${product.description}</p>` : '';
 
+        // Condicionalmente aplica a borda e o padding ao conteúdo principal se houver descrição
+        const contentPaddingAndBorder = product.description ? 'py-4 border-t border-gray-200' : 'pb-4'; // Adiciona padding-bottom sempre, e a borda se houver descrição
+        // Aumentei o min-h para a descrição para dar mais espaço e evitar quebra de layout com pouca descrição
+        // Mantive o p-6 na div principal do conteúdo e ajustei o pt-0 na div dos botões.
+        // Adicionei p-6 (padding em todos os lados) para a div de conteúdo e p-4 para o rodapé
+        // Ajustado para garantir que a borda só apareça se houver descrição ou stock para evitar linhas vazias
         productCard.innerHTML = `
             <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-contain">
-            <div class="p-6">
+            <div class="p-6 flex flex-col flex-grow">
                 <h3 class="text-base font-semibold text-gray-800 mb-2">${product.name}</h3>
                 <p class="text-gray-600">Ref ${product.reference}</p>
                 <p class="text-black-600">${product.price.toFixed(2)}€</p>
                 ${pricePerUnitHtml}
                 ${pricePerLitreHtml}
-                ${descriptionHtml}
-                <p class="font-bold mt-2">Stock: ${product.stock}</p>
-                <div class="mt-4 pt-4 border-t border-gray-200 text-center flex justify-around">
-                    <button data-product-id="${product.id}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition edit-btn">Editar</button>
-                    <button data-product-id="${product.id}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition delete-btn">Remover</button>
+                <div class="flex-grow min-h-[50px] ${product.description || product.pricePerUnit || product.pricePerLitre ? 'mb-4' : ''}"> ${descriptionHtml}
                 </div>
+                <p class="font-bold mt-2">Stock: ${product.stock}</p>
+            </div>
+            <div class="mt-auto px-6 py-4 border-t border-gray-200 text-center flex justify-around"> <button data-product-id="${product.id}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition edit-btn">Editar</button>
+                <button data-product-id="${product.id}" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition delete-btn">Remover</button>
             </div>
         `;
         productListings.appendChild(productCard);
@@ -162,9 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target.classList.contains('delete-btn')) {
             const productIdToDelete = event.target.dataset.productId;
             deleteProduct(productIdToDelete);
-        } else if (event.target.classList.contains('edit-btn')) { // Added 'edit-btn' listener
+        } else if (event.target.classList.contains('edit-btn')) {
             const productIdToEdit = event.target.dataset.productId;
-            // Redirect to the publish/edit page with the product ID as a URL parameter
             window.location.href = `publicarProduto.html?id=${productIdToEdit}`;
         }
     });
@@ -173,13 +177,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let productsInStorage = JSON.parse(localStorage.getItem("bricoObraSupplierProducts")) || [];
         const initialLength = productsInStorage.length;
 
-        // Filter out the product to delete. Use loose comparison (==) for string/number IDs.
         productsInStorage = productsInStorage.filter(product => product.id != idToDelete);
 
         if (productsInStorage.length < initialLength) {
             localStorage.setItem("bricoObraSupplierProducts", JSON.stringify(productsInStorage));
             alert("Produto removido com sucesso!");
-            location.reload(); // Reload the page to reflect changes
+            location.reload();
         } else {
             alert("Erro: Produto não encontrado em seu inventário.");
         }
