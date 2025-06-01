@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -64,7 +65,7 @@
             </div>
             <div class="totals-row">
                 <span class="totals-label">Taxa de entrega</span>
-                <span class="totals-value">2.99 €</span>
+                <span class="totals-value" id="delivery-fee">2.99 €</span>
             </div>
             <div class="totals-row total-row">
                 <span class="totals-label">Total</span>
@@ -105,7 +106,6 @@
             </div>
         </div>
     </footer>
-    <script src="../js/carrinho.js"></script>
     <script>
     
     document.addEventListener('DOMContentLoaded', function() {
@@ -115,12 +115,11 @@
         const plusBtn = document.querySelector('.plus');
         const itemPriceElement = document.querySelector('.item-price');
         const subtotalElement = document.getElementById('subtotal');
-        const deliveryFeeElement = document.querySelector('.totals-value:nth-of-type(2)');
-        const totalElement = document.getElementById('total');
-        const checkoutButton = document.querySelector('.checkout-button');
-        
-        
-        const unitPrice = 19.99;
+const deliveryFeeElement = document.getElementById('delivery-fee');
+const totalElement = document.getElementById('total');
+const checkoutButton = document.querySelector('.checkout-button');
+        // Lê o preço do HTML, substitui vírgula por ponto e remove o símbolo €
+        const unitPrice = parseFloat(itemPriceElement.textContent.replace('€', '').replace(',', '.').trim());
         const deliveryFee = 2.99;
         
         // Inicializar valores

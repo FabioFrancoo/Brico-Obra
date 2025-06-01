@@ -19,108 +19,51 @@
     </div>
 
     <div class="main-content">
-        <h1 class="cart-title">Os seus dados de entrega</h1>
-        <div class="delivery-form" >
-            <div class="form-group">
-                <label>País</label>
-                <p id="delivery-country">Portugal</p>
-            </div>
-            <div class="form-group">
-                <label>Morada</label>
-                <p id="delivery-address">105, Rua das Análises, Sistema, Aveiro</p>
-            </div>
-            <div class="form-group">
-                <label>Andar (Opcional)</label>
-                <p id="delivery-floor">1º direito</p>
-            </div>
-            <div class="form-group">
-                <label>Código-Postal</label>
-                <p id="delivery-postalcode">3753-066</p>
-            </div>
-            <div class="form-group">
-                <label>Contacto telefónico</label>
-                <p id="delivery-phone">987654321</p>
-            </div>
-            <div class="form-group">
-                <label>Observações</label>
-                <p id="delivery-observations">Indisponibilidade para receber todas as terças e quintas</p>
-            </div>
-            <div class="buttons-container">
-                <a href="../html/index_loged.html" class="btn-payment">Voltar à Página Inicial</a>
-            </div>
+        <div class="pedido-finalizado">
+            <h1>Pedido Finalizado</h1>
+            <div id="resumo-carrinho"></div>
+            <div id="resumo-entrega"></div>
         </div>
-        
-        <div class="order-summary">
-    <div class="order-summary-row">
-        <span class="order-summary-label">Produto:</span>
-        <span class="order-summary-value" id="final-product-name">Capacete DELTAPLUS</span>
     </div>
-    <div class="order-summary-row">
-        <span class="order-summary-label">Referência:</span>
-        <span class="order-summary-value" id="final-product-ref">Ref 82394287</span>
-    </div>
-    <div class="order-summary-row">
-        <span class="order-summary-label">Quantidade:</span>
-        <span class="order-summary-value" id="final-quantity">1</span>
-    </div>
-    <div class="order-summary-row">
-        <span class="order-summary-label">Preço Unitário:</span>
-        <span class="order-summary-value" id="final-unit-price">19.99 €</span>
-    </div>
-    <div class="order-summary-row">
-        <span class="order-summary-label">SubTotal:</span>
-        <span class="order-summary-value" id="final-subtotal">19.99 €</span>
-    </div>
-    <div class="order-summary-row">
-        <span class="order-summary-label">Taxa de entrega:</span>
-        <span class="order-summary-value" id="final-delivery">2.99 €</span>
-    </div>
-    <div class="order-summary-row order-summary-total">
-        <span class="order-summary-label">Total:</span>
-        <span class="order-summary-value" id="final-total">22.98 €</span>
-    </div>
-</div>
 
-        <div class="order-details">
-            <h2>Detalhes do Pedido</h2>
-            <p>O seu pedido foi finalizado com sucesso!</p>
-            <p>Agradecemos a sua compra. O seu pedido será processado em breve.</p>
-        </div>
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Função para formatar valores
+            function formatCurrency(value) {
+                return parseFloat(value).toFixed(2).replace('.', ',') + ' €';
+            }
+            
+            // Recuperar dados do carrinho
+            const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+            const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Função para formatar valores
-        function formatCurrency(value) {
-            return parseFloat(value).toFixed(2).replace('.', ',') + ' €';
-        }
-        
-        // Recuperar dados do carrinho
-        const cartData = JSON.parse(localStorage.getItem('cartData'));
+            // Mostrar resumo do carrinho
+            if (cartData.length > 0) {
+                const produto = cartData[0];
+                document.getElementById('resumo-carrinho').innerHTML = `
+                    <h2>Resumo do Carrinho</h2>
+                    <p><strong>Produto:</strong> ${produto.productName}</p>
+                    <p><strong>Referência:</strong> ${produto.productRef}</p>
+                    <p><strong>Quantidade:</strong> ${produto.quantity}</p>
+                    <p><strong>Preço unitário:</strong> ${produto.unitPrice.toFixed(2)} €</p>
+                    <p><strong>Subtotal:</strong> ${produto.subtotal.toFixed(2)} €</p>
+                    <p><strong>Taxa de entrega:</strong> ${produto.deliveryFee.toFixed(2)} €</p>
+                    <p><strong>Total:</strong> ${produto.total.toFixed(2)} €</p>
+                `;
+            }
 
-if (cartData && cartData.length > 0) {
-    const produto = cartData[0];
-    document.getElementById('final-product-name').textContent = produto.productName;
-    document.getElementById('final-product-ref').textContent = produto.productRef;
-    document.getElementById('final-quantity').textContent = produto.quantity;
-    document.getElementById('final-unit-price').textContent = formatCurrency(produto.unitPrice);
-    document.getElementById('final-subtotal').textContent = formatCurrency(produto.unitPrice * produto.quantity);
-    document.getElementById('final-delivery').textContent = formatCurrency(produto.deliveryFee);
-    document.getElementById('final-total').textContent = formatCurrency(produto.total);
-}
-        
-        // Recuperar dados de entrega
-        const deliveryData = JSON.parse(localStorage.getItem('deliveryData')) || {};
-        
-        // Preencher dados de entrega
-        if (deliveryData.country) document.getElementById('delivery-country').textContent = deliveryData.country;
-        if (deliveryData.address) document.getElementById('delivery-address').textContent = deliveryData.address;
-        if (deliveryData.floor) document.getElementById('delivery-floor').textContent = deliveryData.floor;
-        if (deliveryData.postalcode) document.getElementById('delivery-postalcode').textContent = deliveryData.postalcode;
-        if (deliveryData.phone) document.getElementById('delivery-phone').textContent = deliveryData.phone;
-        if (deliveryData.observations) document.getElementById('delivery-observations').textContent = deliveryData.observations;
-    });
-</script>
+            // Mostrar dados de entrega
+            document.getElementById('resumo-entrega').innerHTML = `
+                <h2>Dados de Entrega</h2>
+                <p><strong>País:</strong> ${deliveryData.country || ''}</p>
+                <p><strong>Endereço:</strong> ${deliveryData.address || ''}</p>
+                <p><strong>Andar:</strong> ${deliveryData.floor || ''}</p>
+                <p><strong>Código Postal:</strong> ${deliveryData.postalcode || ''}</p>
+                <p><strong>Telefone:</strong> ${deliveryData.phone || ''}</p>
+                <p><strong>Observações:</strong> ${deliveryData.observations || ''}</p>
+            `;
+        });
+    </script>
     <footer class="store-footer">
         <div class="store-info">
             <div class="store-name">Brico-Obra: Materiais de Bricolagem e Construção</div>
