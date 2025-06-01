@@ -1,109 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-PT">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log In / Sign In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/animations.css">
+</head>
+<body class="bg-white font-sans">
+    <header class="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="../assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+            </div>
 
-    <!-- Custom styles for this template -->
-    <link href="../css/signIn.css" rel="stylesheet" />
-  </head>
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <a href="#" class="icon-hover">
+                        <img src="../assets/icons/Google__G__logo.png" alt="Google" class="h-5 w-5">
+                    </a>
+                    <span class="text-sm text-black">Continuar com o Google</span>
+                </div>
 
-  
-  <header class="fixed-top bg-white shadow-sm z-50">
-    <div class="container-fluid d-flex justify-content-between align-items-center py-2 px-3">
-      <!-- Logo -->
-      <a class="d-flex align-items-center text-decoration-none" href="#">
-        <img src="../assets/images/Logo.jpeg" alt="Logo" width="40" height="40" class="me-2" />
-        <span class="fw-bold text-dark" style="font-size: 1.2rem;">Brico Obra</span>
-      </a>
+                <div class="flex items-center space-x-2">
+                    <a href="#" class="icon-hover">
+                        <img src="../assets/icons/Facebook_Logo_Primary.png" alt="Facebook" class="h-5 w-5">
+                    </a>
+                    <span class="text-sm text-black">Continuar com o Facebook</span>
+                </div>
 
-      <!-- Links e botões -->
-      <div class="d-flex align-items-center gap-3">
-        <!-- Continuar com Google -->
-        <a href="#" class="text-decoration-none text-danger d-flex align-items-center" style="font-size: 1rem;">
-          <img src="../assets/icons/Google__G__logo.png" alt="Google" width="20" height="20" class="me-1" />
-          Continuar com Google  
-        </a>
+                <div class="flex flex-col items-center ml-4">
+                    <a href="../index.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/icons/home.png" alt="Início" class="h-6 w-6">
+                    </a>
+                    <span class="text-sm text-black">Início</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        <!-- Continuar com Facebook -->
-        <a href="#" class="text-decoration-none text-primary d-flex align-items-center" style="font-size: 1rem;">
-          <img src="../assets/icons/Facebook_Logo_Primary.png" alt="Facebook" width="20" height="20" class="me-1" />
-          Continuar com Facebook    
-        </a>
-
-        <a href="../index.html" class="text-decoration-none text-secondary d-flex flex-column align-items-center" style="font-size: 1rem;">
-          <i class="fas fa-home mb-1" style="font-size: 1.5rem;"></i>
-          <span class="text-sm text-gray-600">Início</span>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <body class="d-flex align-items-center vh-100">
-    <div class="container">
-      <div class="row">
-        <!-- Left Side -->
-        <div class="col-md-6">
-          <!-- Buttons for Client and Supplier -->
-          <div class="d-flex justify-content-center mb-4">
-            <button class="btn btn-primary me-2">Cliente</button>
-            <button class="btn btn-secondary" onclick="window.location.href='signIn_fornecedor.html'">Fornecedor</button>
-          </div>
-
-          <!-- Login Form -->
-          <div class="mb-4">
-            <h3 class="text-center">Login</h3>
-            <form>
-              <div class="mb-3">
-                <label for="loginEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="loginEmail" placeholder="Digite seu email" required />
-              </div>
-              <div class="mb-3">
-                <label for="loginPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua senha" required />
-              </div>
-                <button type="button" class="btn btn-primary w-100" onclick="window.location.href='../html/index_loged.html';">Entrar</button>
-            </form>
-          </div>
-
-          <!-- Create Account Form -->
-          <div>
-            <h3 class="text-center">Criar Conta</h3>
-            <form>
-              <div class="mb-3">
-                <label for="firstName" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Digite seu nome" required />
-              </div>
-              <div class="mb-3">
-                <label for="lastName" class="form-label">Apelido</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Digite seu apelido" required />
-              </div>
-              <div class="mb-3">
-                <label for="createEmail" class="form-label">Email</label>
-                <input type="email" class="form-control" id="createEmail" placeholder="Digite seu email" required />
-              </div>
-              <div class="mb-3">
-                <label for="createPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="createPassword" placeholder="Digite sua senha" required />
-              </div>
-              <button type="button" class="btn btn-success w-100" onclick="window.location.href='../html/index_loged.html';">Criar Conta</button>
-            </form>
-          </div>
+    <main class="pt-24">
+        <div class="flex justify-center gap-4 mt-8">
+            <button id="clientBtn" class="bg-orange-500 text-white px-6 py-2 rounded-md transition duration-300 ease-in-out">Cliente</button>
+            <button id="supplierBtn" class="border border-orange-500 text-orange-500 px-6 py-2 rounded-md transition duration-300 ease-in-out">Fornecedor</button>
         </div>
 
-        <!-- Right Side -->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-          <img src="../assets/images/signIN.jpg" alt="Logo" class="img-fluid" style="max-width: 80%;" />
+        <div class="flex flex-col md:flex-row justify-center items-start gap-8 mt-12 px-4 max-w-6xl mx-auto">
+
+            <div class="bg-white p-8 rounded-lg shadow-xl w-full md:w-1/2">
+
+                <div>
+                    <h2 class="text-xl font-semibold mb-4">Iniciar Sessão / Login</h2>
+                    <form id="loginForm" class="flex flex-col gap-4" novalidate>
+                        <div> <input type="text" id="loginEmail" placeholder="email@exemplo.com" class="border px-4 py-2 rounded-md w-full" />
+                            <div id="loginEmailError" class="text-red-500 text-sm"></div>
+                        </div>
+
+                        <div> <input type="password" id="loginPassword" placeholder="Password" class="border px-4 py-2 rounded-md w-full" />
+                            <div id="loginPasswordError" class="text-red-500 text-sm"></div>
+                        </div>
+
+                        <button type="submit" class="bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">Entrar</button>
+                    </form>
+                </div>
+
+                <hr class="my-8 border-gray-300">
+
+                <div id="signupFormContainer">
+                    <div id="clientSignupForm" class="">
+                        <h2 class="text-xl font-semibold mb-4">Criar Conta</h2>
+                        <form id="clientCreateForm" class="flex flex-col gap-4" novalidate>
+                            <div class="flex gap-4">
+                                <div class="w-1/2">
+                                    <input type="text" id="clientName" placeholder="Nome" class="border px-4 py-2 rounded-md w-full" />
+                                    <div id="clientNameError" class="text-red-500 text-sm"></div>
+                                </div>
+                                <div class="w-1/2">
+                                    <input type="text" id="clientSurname" placeholder="Apelido" class="border px-4 py-2 rounded-md w-full" />
+                                    <div id="clientSurnameError" class="text-red-500 text-sm"></div>
+                                </div>
+                            </div>
+                            
+                            <div> <input type="text" id="clientEmail" placeholder="email@exemplo.com" class="border px-4 py-2 rounded-md w-full" />
+                                <div id="clientEmailError" class="text-red-500 text-sm"></div>
+                            </div>
+
+                            <div> <input type="password" id="clientPassword" placeholder="Password" class="border px-4 py-2 rounded-md w-full" />
+                                <div id="clientPasswordError" class="text-red-500 text-sm"></div>
+                            </div>
+                            
+                            <button type="submit" class="bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">Criar</button>
+                        </form>
+                    </div>
+
+                    <div id="supplierSignupForm" class="hidden">
+                        <h2 class="text-xl font-semibold mb-4">Criar Conta</h2>
+                        <form id="supplierCreateForm" class="flex flex-col gap-4" novalidate>
+                            <div> <input type="text" id="supplierName" placeholder="Nome da Empresa" class="border px-4 py-2 rounded-md w-full" />
+                                <div id="supplierNameError" class="text-red-500 text-sm"></div>
+                            </div>
+
+                            <div> <input type="text" id="supplierEmail" placeholder="email@fornecedor.com" class="border px-4 py-2 rounded-md w-full" />
+                                <div id="supplierEmailError" class="text-red-500 text-sm"></div>
+                            </div>
+
+                            <div> <input type="password" id="supplierPassword" placeholder="Password" class="border px-4 py-2 rounded-md w-full" />
+                                <div id="supplierPasswordError" class="text-red-500 text-sm"></div>
+                            </div>
+
+                            <div> <div class="relative border border-gray-300 rounded-md py-2 px-4 flex items-center justify-between cursor-pointer bg-gray-100 hover:bg-gray-200 transition">
+                                    <input type="file" id="activityProof" class="absolute inset-0 opacity-0 cursor-pointer" />
+                                    <span id="activityFileName" class="text-gray-600">Carregar ficheiros</span>
+                                    <i class="fas fa-paperclip text-gray-400"></i>
+                                </div>
+                                <div id="activityProofError" class="text-red-500 text-sm"></div>
+                            </div>
+                            
+                            <button type="submit" class="bg-black text-white py-2 rounded-md hover:bg-gray-800 transition">Submeter</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-      </div>
-    </div>
-  </body>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    </main>
+
+    <footer class="bg-white text-gray-900 py-12">
+        <div class="container mx-auto px-36">
+            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+                    <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="md:text-left align-contacts">
+                    <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
+                    <p class="text-gray-600 mb-2">
+                        <span class="font-semibold">Email:</span> brico.obra@sapo.pt
+                    </p>
+                    <p class="text-gray-600">
+                        <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/logInSignIn.js"></script>
+</body>
 </html>
