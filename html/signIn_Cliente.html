@@ -67,7 +67,7 @@
                 <label for="loginPassword" class="form-label">Password</label>
                 <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua senha" required />
               </div>
-                <button type="button" class="btn btn-primary w-100" onclick="window.location.href='../html/produto_Tinta_Logged.html';">Entrar</button>
+                <button type="button" class="btn btn-primary w-100" id="loginBtn">Entrar</button>
             </form>
           </div>
 
@@ -91,7 +91,7 @@
                 <label for="createPassword" class="form-label">Password</label>
                 <input type="password" class="form-control" id="createPassword" placeholder="Digite sua senha" required />
               </div>
-              <button type="button" class="btn btn-success w-100" onclick="window.location.href='../html/index_loged.html';">Criar Conta</button>
+              <button type="button" class="btn btn-success w-100" id="createBtn">Criar Conta</button>
             </form>
           </div>
         </div>
@@ -105,5 +105,18 @@
   </body>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('loginBtn').addEventListener('click', function() {
+    sessionStorage.setItem('userLogged', 'cliente');
+    window.location.href = '../html/produto_Tinta_Logged.html';
+  });
+
+  document.getElementById('createBtn').addEventListener('click', function() {
+    sessionStorage.setItem('userLogged', 'cliente');
+    window.location.href = '../html/index_loged.html';
+  });
+});
+</script>
   </body>
 </html>
