@@ -14,3 +14,38 @@
     border-radius: 4px;
     cursor: pointer;
 }
+/* Estilo para a seção de resumo do pedido */
+.order-summary {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-top: 30px;
+}
+
+.order-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-summary-label {
+    font-weight: bold;
+    color: #555;
+    min-width: 150px;
+}
+
+.order-summary-value {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+.order-summary-total {
+    font-size: 18px;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 2px solid #FE7501;
+}

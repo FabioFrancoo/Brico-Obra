@@ -1,36 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Compras</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/carrinho.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
     <!-- Header -->
-    <header class="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center animate-on-load">
-            <!-- Logo -->
-            <div class="flex items-center">
-                <img src="../assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
-                <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
-            </div>
-            <!-- Icons -->
-            <div class="flex items-center space-x-6">
-                <div class="flex flex-col items-center">
-                    <a href="html/signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
-                        <img src="../assets/icons/home.png" alt="Ícone de homepage" class="h-6 w-6">
-                    </a>
-                    <span class="text-sm text-black">Início</span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main>
+    <div class="header-container">
+        <img src="../assets/images/Logo.jpeg" alt="Logo" class="logo" onclick="window.location.href='index.html'">
+        <a href="../index.html" class="back-button">
+            <img src="../assets/icons/home.png" alt="Home" style="height: 20px; width: 20px;">
+        </a>
+    </div>
+    <!---- Barra de progresso -->
+    <div class="main-content">
         <div class="progress-steps">
             <div class="step active">
                 <div class="step-number">1</div>
@@ -49,19 +36,31 @@
         <h1 class="cart-title">O meu carrinho</h1>
         
         <div class="cart-item">
-            <div class="item-image">Imagem</div>
+            <div class="item-image">
+                <img src="../assets/images/capacete.jpg" alt="Capacete DELTAPLUS" onerror="this.style.display='none'">
+            </div>
             <div class="item-details">
                 <div class="item-name">Capacete DELTAPLUS</div>
                 <div class="item-ref">Ref 82394287</div>
                 <div class="item-price">19.99 €</div>
+                
+                <div class="item-actions">
+                    <div class="quantity-control">
+                        <button class="quantity-btn minus">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                    <button class="remove-btn">
+                        <i class="fas fa-trash-alt"></i> Remover
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Total -->
         <div class="totals-section">
             <div class="totals-row">
                 <span class="totals-label">SubTotal</span>
-                <span class="totals-value">19.99 €</span>
+                <span class="totals-value" id="subtotal">19.99 €</span>
             </div>
             <div class="totals-row">
                 <span class="totals-label">Taxa de entrega</span>
@@ -69,44 +68,125 @@
             </div>
             <div class="totals-row total-row">
                 <span class="totals-label">Total</span>
-                <span class="totals-value">22.80 €</span>
+                <span class="totals-value" id="total">22.98 €</span>
             </div>
         </div>
 
         <a href="dadosentrega.html" class="checkout-button">Preencher dados da encomenda</a>
 
         <div class="divider"></div>
-    </main>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-white text-gray-900 py-12">
-        <div class="container mx-auto px-36">
-            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
-                    <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
-                    <ul class="flex space-x-4">
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="md:text-left align-contacts">
-                    <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
-                    <p class="text-gray-600 mb-2">
-                        <span class="font-semibold">Email:</span> brico.obra@sapo.pt
-                    </p>
-                    <p class="text-gray-600">
-                        <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
-                    </p>
-                </div>
+
+    <footer class="store-footer">
+        <div class="store-info">
+            <div class="store-name">Brico-Obra: Materiais de Bricolagem e Construção</div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
-                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+            
+            <table class="contact-table">
+                <tr>
+                    <td>Email:</td>
+                    <td>brico.obra@sapo.pt</td>
+                </tr>
+                <tr>
+                    <td>Telefone:</td>
+                    <td>213 456 789</td>
+                </tr>
+            </table>
+            
+            <div class="copyright">
+                &copy; 2025 Brico-Obra. Todos os direitos reservados.
             </div>
         </div>
     </footer>
+    <script src="../js/carrinho.js"></script>
+    <script>
+    // Esperar o DOM estar completamente carregado
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elementos do DOM
+        const quantityInput = document.querySelector('.quantity-input');
+        const minusBtn = document.querySelector('.minus');
+        const plusBtn = document.querySelector('.plus');
+        const itemPriceElement = document.querySelector('.item-price');
+        const subtotalElement = document.getElementById('subtotal');
+        const deliveryFeeElement = document.querySelector('.totals-value:nth-of-type(2)');
+        const totalElement = document.getElementById('total');
+        const checkoutButton = document.querySelector('.checkout-button');
+        
+        // Preço unitário fixo (poderia ser dinâmico)
+        const unitPrice = 19.99;
+        const deliveryFee = 2.99;
+        
+        // Inicializar valores
+        quantityInput.value = 1;
+        itemPriceElement.textContent = unitPrice.toFixed(2) + ' €';
+        itemPriceElement.dataset.unitPrice = unitPrice;
+        updateTotals();
+        
+        // Função para atualizar totais
+        function updateTotals() {
+            const quantity = parseInt(quantityInput.value);
+            const subtotal = unitPrice * quantity;
+            const total = subtotal + deliveryFee;
+            
+            subtotalElement.textContent = subtotal.toFixed(2) + ' €';
+            deliveryFeeElement.textContent = deliveryFee.toFixed(2) + ' €';
+            totalElement.textContent = total.toFixed(2) + ' €';
+        }
+        
+        // Evento de decremento
+        minusBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+                updateTotals();
+            }
+        });
+        
+        // Evento de incremento - CORREÇÃO PRINCIPAL AQUI
+        plusBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+            updateTotals();
+        });
+        
+        // Validação do input manual
+        quantityInput.addEventListener('change', function() {
+            let value = parseInt(this.value);
+            if (isNaN(value) || value < 1) {
+                this.value = 1;
+            }
+            updateTotals();
+        });
+        
+        // Armazenar dados ao prosseguir
+        checkoutButton.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Buscar a quantidade ATUAL do input
+            const currentQuantity = parseInt(document.querySelector('.quantity-input').value);
+
+            const cartProduct = {
+                quantity: currentQuantity,
+                unitPrice: unitPrice,
+                subtotal: unitPrice * currentQuantity,
+                deliveryFee: deliveryFee,
+                total: (unitPrice * currentQuantity) + deliveryFee,
+                productName: document.querySelector('.item-name').textContent,
+                productRef: document.querySelector('.item-ref').textContent
+            };
+
+            localStorage.setItem('cartData', JSON.stringify([cartProduct]));
+            window.location.href = 'dadosentrega.html';
+        });
+    });
+</script>
+
 </body>
 </html>

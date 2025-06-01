@@ -16,7 +16,7 @@
             <a href="dadosentrega.html" class="btn-voltar" title="Voltar">
                 Voltar
             </a>
-            <a href="index.html" class="btn-home" title="Início">
+            <a href="../index.html" class="btn-home" title="Início">
                 <img src="../assets/icons/home.png" alt="Home" style="height: 20px; width: 20px;" />
             </a>
         </div>
@@ -74,5 +74,15 @@
                 </div>
             </div>
         </footer>
+        <script>
+            // Script para lidar com o armazenamento local e navegação
+            document.addEventListener('DOMContentLoaded', () => {
+                const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
+                if (!deliveryData.country) {
+                    window.location.href = 'dadosentrega.html';
+                }
+            });
+            </script>
+        <script src="../js/carrinho.js"></script>
     </body>
 </html>

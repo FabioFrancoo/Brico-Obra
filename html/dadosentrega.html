@@ -15,7 +15,7 @@
             <a href="carrinho.html" class="btn-voltar" title="Voltar">
                 Voltar
             </a>
-            <a href="index.html" class="btn-home" title="Início">
+            <a href="../index.html" class="btn-home" title="Início">
                 <img src="../assets/icons/home.png" alt="Home" style="height: 20px; width: 20px;" />
             </a>
         </div>
@@ -65,10 +65,23 @@
             </div>
             <div class="buttons-container">
                 <button type="button" class="btn-premium">Entrega Premium</button>
-                <!--<button type="submit" class="btn-payment" onclick="window.location.href=''">Preencher dados de pagamento</button>-->
-                <button type="submit" class="btn-payment" onclick="window.location.href='metodopagamento.html'">Preencher dados de pagamento</button>
+                <button type="button" class="btn-payment" id="btn-to-payment">Preencher dados de pagamento</button>
             </div>
         </form>
+        <script>
+            document.getElementById('btn-to-payment').addEventListener('click', () => {
+                const deliveryData = {
+                    country: document.getElementById('country').value,
+                    address: document.getElementById('address').value,
+                    floor: document.getElementById('floor').value,
+                    postalcode: document.getElementById('postalcode').value,
+                    phone: document.getElementById('phone').value,
+                    observations: document.getElementById('observations').value
+                };
+                localStorage.setItem('bricoObraDelivery', JSON.stringify(deliveryData));
+                window.location.href = 'metodopagamento.html';
+            });
+        </script>
     </div>
 
     <footer class="store-footer">

@@ -23,49 +23,104 @@
         <div class="delivery-form" >
             <div class="form-group">
                 <label>País</label>
-                <p>Portugal</p>
+                <p id="delivery-country">Portugal</p>
             </div>
             <div class="form-group">
                 <label>Morada</label>
-                <p>105, Rua das Análises, Sistema, Aveiro</p>
+                <p id="delivery-address">105, Rua das Análises, Sistema, Aveiro</p>
             </div>
             <div class="form-group">
                 <label>Andar (Opcional)</label>
-                <p>1º direito</p>
+                <p id="delivery-floor">1º direito</p>
             </div>
             <div class="form-group">
                 <label>Código-Postal</label>
-                <p>3753-066</p>
+                <p id="delivery-postalcode">3753-066</p>
             </div>
             <div class="form-group">
                 <label>Contacto telefónico</label>
-                <p>987654321</p>
+                <p id="delivery-phone">987654321</p>
             </div>
             <div class="form-group">
                 <label>Observações</label>
-                <p>Indisponibilidade para receber todas as terças e quintas</p>
+                <p id="delivery-observations">Indisponibilidade para receber todas as terças e quintas</p>
             </div>
             <div class="buttons-container">
                 <a href="../html/index_loged.html" class="btn-payment">Voltar à Página Inicial</a>
             </div>
         </div>
-
-        <div class="totals-section" style="text-align: right; margin-top: 20px;">
-            <div class="totals-row">
-                <span class="totals-label"><strong>SubTotal</strong></span>
-                <span class="totals-value">19.99 €</span>
-            </div>
-            <div class="totals-row">
-                <span class="totals-label">Taxa de entrega</span>
-                <span class="totals-value">2.99 €</span>
-            </div>
-            <div class="totals-row total-row">
-                <span class="totals-label"><strong>Total</strong></span>
-                <span class="totals-value">22.98 €</span>
-            </div>
-        </div>
+        
+        <div class="order-summary">
+    <div class="order-summary-row">
+        <span class="order-summary-label">Produto:</span>
+        <span class="order-summary-value" id="final-product-name">Capacete DELTAPLUS</span>
     </div>
+    <div class="order-summary-row">
+        <span class="order-summary-label">Referência:</span>
+        <span class="order-summary-value" id="final-product-ref">Ref 82394287</span>
+    </div>
+    <div class="order-summary-row">
+        <span class="order-summary-label">Quantidade:</span>
+        <span class="order-summary-value" id="final-quantity">1</span>
+    </div>
+    <div class="order-summary-row">
+        <span class="order-summary-label">Preço Unitário:</span>
+        <span class="order-summary-value" id="final-unit-price">19.99 €</span>
+    </div>
+    <div class="order-summary-row">
+        <span class="order-summary-label">SubTotal:</span>
+        <span class="order-summary-value" id="final-subtotal">19.99 €</span>
+    </div>
+    <div class="order-summary-row">
+        <span class="order-summary-label">Taxa de entrega:</span>
+        <span class="order-summary-value" id="final-delivery">2.99 €</span>
+    </div>
+    <div class="order-summary-row order-summary-total">
+        <span class="order-summary-label">Total:</span>
+        <span class="order-summary-value" id="final-total">22.98 €</span>
+    </div>
+</div>
 
+        <div class="order-details">
+            <h2>Detalhes do Pedido</h2>
+            <p>O seu pedido foi finalizado com sucesso!</p>
+            <p>Agradecemos a sua compra. O seu pedido será processado em breve.</p>
+        </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Função para formatar valores
+        function formatCurrency(value) {
+            return parseFloat(value).toFixed(2).replace('.', ',') + ' €';
+        }
+        
+        // Recuperar dados do carrinho
+        const cartData = JSON.parse(localStorage.getItem('cartData'));
+
+if (cartData && cartData.length > 0) {
+    const produto = cartData[0];
+    document.getElementById('final-product-name').textContent = produto.productName;
+    document.getElementById('final-product-ref').textContent = produto.productRef;
+    document.getElementById('final-quantity').textContent = produto.quantity;
+    document.getElementById('final-unit-price').textContent = formatCurrency(produto.unitPrice);
+    document.getElementById('final-subtotal').textContent = formatCurrency(produto.unitPrice * produto.quantity);
+    document.getElementById('final-delivery').textContent = formatCurrency(produto.deliveryFee);
+    document.getElementById('final-total').textContent = formatCurrency(produto.total);
+}
+        
+        // Recuperar dados de entrega
+        const deliveryData = JSON.parse(localStorage.getItem('deliveryData')) || {};
+        
+        // Preencher dados de entrega
+        if (deliveryData.country) document.getElementById('delivery-country').textContent = deliveryData.country;
+        if (deliveryData.address) document.getElementById('delivery-address').textContent = deliveryData.address;
+        if (deliveryData.floor) document.getElementById('delivery-floor').textContent = deliveryData.floor;
+        if (deliveryData.postalcode) document.getElementById('delivery-postalcode').textContent = deliveryData.postalcode;
+        if (deliveryData.phone) document.getElementById('delivery-phone').textContent = deliveryData.phone;
+        if (deliveryData.observations) document.getElementById('delivery-observations').textContent = deliveryData.observations;
+    });
+</script>
     <footer class="store-footer">
         <div class="store-info">
             <div class="store-name">Brico-Obra: Materiais de Bricolagem e Construção</div>

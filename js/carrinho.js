@@ -1,14 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartItems = document.querySelectorAll('.cart-item');
 
+    function saveCartToLocalStorage(cartData) {
+        localStorage.setItem('bricoObraCart', JSON.stringify(cartData));
+    }
+
+    function getCartFromLocalStorage() {
+        const cartData = localStorage.getItem('bricoObraCart');
+        return cartData ? JSON.parse(cartData) : [];
+    }
+
     function updateTotals() {
         let subtotal = 0;
+        const cartData = [];
+
         cartItems.forEach(item => {
             const priceText = item.querySelector('.item-price').textContent.trim();
             const price = parseFloat(priceText.replace('€', '').replace(',', '.'));
             const quantity = parseInt(item.querySelector('.quantity-input').value);
             subtotal += price * quantity;
+
+            const name = item.querySelector('.item-name').textContent.trim();
+            const ref = item.querySelector('.item-ref').textContent.trim();
+
+            cartData.push({ name, ref, price, quantity });
         });
+
+        console.log('Saving cart data to localStorage:', cartData);
+        // Save cart data to localStorage
+        saveCartToLocalStorage(cartData);
 
         // Update subtotal display
         const totalsRows = document.querySelectorAll('.totals-row');
@@ -23,10 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Get delivery fee
-        let deliveryFee = 0;
+        let deliveryFee = 2.99; // Fixed delivery fee
+
         if (deliveryElement) {
-            const deliveryText = deliveryElement.textContent.trim();
-            deliveryFee = parseFloat(deliveryText.replace('€', '').replace(',', '.'));
+            deliveryElement.textContent = deliveryFee.toFixed(2).replace('.', ',') + ' €';
         }
 
         // Update total display
@@ -34,6 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (totalElement) {
             const total = subtotal + deliveryFee;
             totalElement.textContent = total.toFixed(2).replace('.', ',') + ' €';
+
+            // Save totals to localStorage
+            localStorage.setItem('bricoObraTotals', JSON.stringify({
+                subtotal: subtotal,
+                deliveryFee: deliveryFee,
+                total: total
+            }));
         }
     }
 
@@ -52,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         plusBtn.addEventListener('click', () => {
             let currentValue = parseInt(quantityInput.value);
+            // Fix increment to add only 1
             quantityInput.value = currentValue + 1;
             updateTotals();
         });
