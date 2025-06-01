@@ -40,9 +40,9 @@
                 <img src="../assets/images/capacete.jpg" alt="Capacete DELTAPLUS" onerror="this.style.display='none'">
             </div>
             <div class="item-details">
-                <div class="item-name">Capacete DELTAPLUS</div>
-                <div class="item-ref">Ref 82394287</div>
-                <div class="item-price">19.99 €</div>
+                <div class="item-name">Capacete Zircon Branco</div>
+                <div class="item-ref">Ref 123456789</div>
+                <div class="item-price">5.79 €</div>
                 
                 <div class="item-actions">
                     <div class="quantity-control">
@@ -60,7 +60,7 @@
         <div class="totals-section">
             <div class="totals-row">
                 <span class="totals-label">SubTotal</span>
-                <span class="totals-value" id="subtotal">19.99 €</span>
+                <span class="totals-value" id="subtotal">5.79 €</span>
             </div>
             <div class="totals-row">
                 <span class="totals-label">Taxa de entrega</span>
@@ -68,7 +68,7 @@
             </div>
             <div class="totals-row total-row">
                 <span class="totals-label">Total</span>
-                <span class="totals-value" id="total">22.98 €</span>
+                <span class="totals-value" id="total">8.78 €</span>
             </div>
         </div>
 
@@ -189,7 +189,7 @@
 </script>
 <script>
     // Verifica se o utilizador está autenticado
-    if (!sessionStorage.getItem('userLogged')) {
+    if (!sessionStorage.getItem('userLogged') || sessionStorage.getItem('userLogged') !== 'true') {
         window.location.href = 'signIn.html';
     }
 </script>

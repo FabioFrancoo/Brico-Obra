@@ -238,11 +238,12 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Prevent default form submission
 
         if (validateLoginForm()) {
-            // If validation passes, proceed with redirection
+            // Se o login for válido, define o userLogged
+            sessionStorage.setItem('userLogged', 'true');
             if (currentFormType === 'client') {
-                window.location.href = '../html/index_loged.html'; // Redirect to client dashboard
+                window.location.href = '../html/index_loged.html';
             } else if (currentFormType === 'supplier') {
-                window.location.href = '../html/paginaFornecedor.html'; // Redirect to supplier dashboard
+                window.location.href = '../html/paginaFornecedor.html';
             }
         }
     });
@@ -251,8 +252,8 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Prevent default form submission
 
         if (validateClientSignupForm()) {
-            // If validation passes, proceed with redirection
-            window.location.href = '../html/index_loged.html'; // Redirect to client dashboard after signup
+            sessionStorage.setItem('userLogged', 'true');
+            window.location.href = '../html/index_loged.html';
         }
     });
 
@@ -260,8 +261,8 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Prevent default form submission
 
         if (validateSupplierSignupForm()) {
-            // If validation passes, proceed with redirection
-            window.location.href = '../html/paginaFornecedor.html'; // Redirect to supplier dashboard after signup
+            sessionStorage.setItem('userLogged', 'true');
+            window.location.href = '../html/paginaFornecedor.html';
         }
     });
 
