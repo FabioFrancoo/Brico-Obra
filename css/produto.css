@@ -101,6 +101,22 @@
   margin-top: auto;
 }
 
+#searchInput {
+  border-radius: 0.5rem 0.5rem 0 0; 
+  border: 1px solid #d1d5db;
+  border-bottom: none;
+}
+
+#suggestionsList {
+  border-radius: 0 0 0.5rem 0.5rem; 
+  border: 1px solid #e5e7eb;
+  border-top: none; 
+  margin-top: 0;
+
+}
+
+
+
 
 /* Barra de Pesquisa */
 #searchContainer {

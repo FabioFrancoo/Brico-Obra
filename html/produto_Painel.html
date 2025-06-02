@@ -22,7 +22,7 @@
 <div class="hidden md:block w-1/2">
   <form id="searchForm" class="relative">
     <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
-    <button type="button" id="searchBtn" class="hidden"></button>
+    <button type="submit" id="searchBtn" class="hidden"></button>
 
     <input
       type="text"
@@ -72,7 +72,7 @@
     <div class="container mx-auto px-6">
       <div class="product-info flex flex-col md:flex-row gap-8">
         <div class="product-image w-full md:w-1/2">
-          <img src="/assets/images/chapa.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
+          <img src="../assets/images/chapa.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
         </div>
         <div class="product-details w-full md:w-1/2">
           <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho</h1>
@@ -243,9 +243,14 @@
   </footer>
 
   <script src="../js/loadScrollAnimations.js"></script>
-    <script type="module">
-        import { initSearchBar } from "../js/searchBar.js";
-        window.addEventListener("DOMContentLoaded", initSearchBar);
+    <script src="../js/searchBar.js"></script>
+    <script>
+    window.addEventListener("DOMContentLoaded", function() {
+        if (typeof initSearchBar === "function") {
+        initSearchBar();
+        } else {
+        console.error("initSearchBar não encontrada");
+        }
+    });
     </script>
-</body>
 </html>

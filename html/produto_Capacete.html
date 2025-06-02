@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC - Brico-Obra</title>
+  <title>Capacete Zircon Branco - Brico-Obra</title>
   <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/produto.css" />
@@ -22,7 +22,7 @@
 <div class="hidden md:block w-1/2">
   <form id="searchForm" class="relative">
     <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
-    <button type="button" id="searchBtn" class="hidden"></button>
+    <button type="submit" id="searchBtn" class="hidden"></button>
 
     <input
       type="text"
@@ -53,7 +53,7 @@
           <span class="text-sm text-black">Início</span>
         </div>
         <div class="flex flex-col items-center -mt-1">
-          <a href="html/carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
             <img src="../assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
           </a>
           <span class="text-sm text-black">Carrinho</span>
@@ -72,10 +72,10 @@
     <div class="container mx-auto px-6">
       <div class="product-info flex flex-col md:flex-row gap-8">
         <div class="product-image w-full md:w-1/2">
-          <img src="../assets/images/Capacete1.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
+          <img src="../assets/images/capacete.jpg" alt="Capacete Zircon Branco" class="w-full h-auto object-contain">
         </div>
         <div class="product-details w-full md:w-1/2">
-          <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Capacete DELTAPLUS</h1>
+          <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Capacete Zircon Branco</h1>
           <h2 class="text-xl font-semibold mb-2">Descrição do Produto</h2>
           <div class="rating flex items-center mb-4">
             <span class="stars text-yellow-400 text-xl mr-2">★★★★★</span>
@@ -85,9 +85,9 @@
             Capacete de segurança regulável com fivela de queixo HDPE e PVC branco <br>
             irá protegê-lo contra os riscos de impacto e perfuração provocados pela queda ou choque contra objetos, enquanto trabalha confortavelmente.<br>
             Capacete com viseira adaptado a trabalhos em alturas. A correia regulável adapta-se a todos os contornos de cabeça de adultos. Em conformidade com a norma EN 397.</p>
-            <p class="text-gray-600">Ref 88035350</p>
+            <p class="text-gray-600">Ref 123456789</p>
             <div class="product-price text-2xl font-bold mb-4">
-            <p class="text-black-600">19,99€</p>
+            <p class="text-black-600">5,79€</p>
           </div>
           <div class="product-actions">
             <a href="../html/signIn.html" class="bg-black text-white py-2 px-4 rounded hover:bg-black-700 transition">Adicionar ao Carrinho</a>
@@ -99,8 +99,8 @@
     <!-- Sugestões de Produtos -->
 <section class="suggestions mt-16">
   <div class="container mx-auto px-6">
-    <h2 class="text-2xl font-bold mb-6 animate-on-scroll">Produtos Relacionados</h2>
-    <div class="suggestions-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 animate-on-scroll">
+    <h2 class="text-2xl font-bold mb-6">Produtos Relacionados</h2>
+    <div class="suggestions-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
       
       <div class="suggestion-card bg-white p-4 rounded shadow">
         <img src="../assets/images/Capacete2.png" alt="Capacete2" class="w-full h-32 object-contain mb-2" />
@@ -246,9 +246,15 @@
   </footer>
 
   <script src="../js/loadScrollAnimations.js"></script>
-      <script type="module">
-    import { initSearchBar } from "../js/searchBar.js";
-    window.addEventListener("DOMContentLoaded", initSearchBar);
+    <script src="../js/searchBar.js"></script>
+    <script>
+    window.addEventListener("DOMContentLoaded", function() {
+        if (typeof initSearchBar === "function") {
+        initSearchBar();
+        } else {
+        console.error("initSearchBar não encontrada");
+        }
+    });
     </script>
 </body>
 </html>

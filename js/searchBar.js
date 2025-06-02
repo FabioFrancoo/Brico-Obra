@@ -1,4 +1,4 @@
-export function initSearchBar() {
+function initSearchBar() {
   const searchInput = document.getElementById('searchInput');
   const suggestionsList = document.getElementById('suggestionsList');
   const searchBtn = document.getElementById('searchBtn');
@@ -6,7 +6,7 @@ export function initSearchBar() {
   if (!searchInput || !suggestionsList || !searchBtn) return;
 
   const suggestions = [
-    "Martelo", "Parafusos", "Tintas", "Serra elétrica", "Lâmpadas LED",
+    "Martelo", "Parafusos", "Tintas", "Chapa", "Lâmpadas LED",
     "Ferramentas manuais", "Rolo de pintura", "Lixas", "Chave inglesa", "Capacete"
   ];
 

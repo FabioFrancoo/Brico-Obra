@@ -23,7 +23,7 @@
 <div class="hidden md:block w-1/2">
   <form id="searchForm" class="relative">
     <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
-    <button type="button" id="searchBtn" class="hidden"></button>
+    <button type="submit" id="searchBtn" class="hidden"></button>
 
     <input
       type="text"
@@ -242,9 +242,15 @@
   </footer>
 
   <script src="../js/loadScrollAnimations.js"></script>
-  <script type="module">
-    import { initSearchBar } from "../js/searchBar.js";
-    window.addEventListener("DOMContentLoaded", initSearchBar);
-  </script>
+    <script src="../js/searchBar.js"></script>
+    <script>
+    window.addEventListener("DOMContentLoaded", function() {
+        if (typeof initSearchBar === "function") {
+        initSearchBar();
+        } else {
+        console.error("initSearchBar não encontrada");
+        }
+    });
+    </script>
 </body>
 </html>

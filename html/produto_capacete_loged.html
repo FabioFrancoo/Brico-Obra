@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capacete DELTAPLUS - Brico-Obra</title>
+  <title>Capacete Zircon Branco - Brico-Obra</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/produto.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
 </head>
 <body class="bg-gray-50 font-sans">
   <!-- Header -->
@@ -23,7 +24,7 @@
 <div class="hidden md:block w-1/2">
   <form id="searchForm" class="relative">
     <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
-    <button type="button" id="searchBtn" class="hidden"></button>
+    <button type="submit" id="searchBtn" class="hidden"></button>
 
     <input
       type="text"
@@ -49,22 +50,22 @@
       <!-- Icons -->
       <div class="flex items-center space-x-6">
         <div class="flex flex-col items-center">
-          <a href="../html/index_loged.html" class="text-gray-600 hover:text-blue-600">
+          <a href="../html/index_loged.html" class="text-gray-600 hover:text-blue-600 icon-hover">
             <img src="../assets/icons/home.png" class="h-6 w-6" />
           </a>
           <span class="text-sm text-black">Início</span>
         </div>
         <div class="flex flex-col items-center">
-          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600" onclick="event.stopPropagation()">
+          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover" onclick="event.stopPropagation()">
             <img src="../assets/icons/cart_black.png" class="h-7 w-7" />
           </a>
           <span class="text-sm text-black">Carrinho</span>
         </div>
-        <div class="flex flex-col items-center">
-          <a href="../html/contaCliente.html" class="text-gray-600 hover:text-blue-600">
-            <img src="../assets/images/user.jpg" class="h-6 w-6" />
-          </a>
-        </div>
+                <div class="flex flex-col items-center">
+                    <a href="../html/contaCliente.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                        <img src="../assets/images/user.jpg" alt="Ícone de utilizador" class="h-10 w-10 rounded-full object-cover">
+                    </a>
+                </div>
       </div>
     </div>
   </header>
@@ -73,20 +74,24 @@
   <main class="pt-24">
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row gap-8">
-        <div class="w-full md:w-1/2">
-          <img src="../assets/images/Capacete1.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
+                <div class="product-image w-full md:w-1/2">
+          <img src="../assets/images/capacete.jpg" alt="Capacete Zircon Branco" class="w-full h-auto object-contain">
         </div>
-        <div class="w-full md:w-1/2">
-          <h1 class="text-3xl font-bold text-gray-800 mb-4">Capacete de proteção DELTAPLUS</h1>
+        <div class="product-details w-full md:w-1/2">
+          <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Capacete Zircon Branco</h1>
+          <h2 class="text-xl font-semibold mb-2">Descrição do Produto</h2>
           <div class="rating flex items-center mb-4">
-            <span class="text-yellow-400 text-xl mr-2">★★★★☆</span>
-            <span class="text-gray-600">(105 avaliações)</span>
+            <span class="stars text-yellow-400 text-xl mr-2">★★★★★</span>
+            <span class="reviews text-gray-600">(157 avaliações)</span>
           </div>
           <p class="text-gray-700 mb-4">
-            Capacete de proteção da marca DELTAPLUS, com alta resistência a impactos e design ergonómico para uso prolongado. Ideal para obras, estaleiros e ambientes industriais.
-          </p>
-          <p class="text-gray-600 mb-2">Ref: 88035350</p>
-          <p class="text-2xl font-bold text-black mb-4">19,99€</p>
+            Capacete de segurança regulável com fivela de queixo HDPE e PVC branco <br>
+            irá protegê-lo contra os riscos de impacto e perfuração provocados pela queda ou choque contra objetos, enquanto trabalha confortavelmente.<br>
+            Capacete com viseira adaptado a trabalhos em alturas. A correia regulável adapta-se a todos os contornos de cabeça de adultos. Em conformidade com a norma EN 397.</p>
+            <p class="text-gray-600">Ref 123456789</p>
+            <div class="product-price text-2xl font-bold mb-4">
+            <p class="text-black-600">5,79€</p>
+          </div>
           <div class="product-actions">
             <button 
               onclick="adicionarAoCarrinhoEIr()" 
@@ -97,34 +102,152 @@
         </div>
       </div>
     </div>
+
+<!-- Sugestões de Produtos -->
+<section class="suggestions mt-16">
+  <div class="container mx-auto px-6">
+    <h2 class="text-2xl font-bold mb-6">Produtos Relacionados</h2>
+    <div class="suggestions-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      
+      <div class="suggestion-card bg-white p-4 rounded shadow">
+        <img src="../assets/images/Capacete2.png" alt="Capacete2" class="w-full h-32 object-contain mb-2" />
+        <div class="caption-wrapper">
+          <p class="product-name font-medium">Capacete de proteção COMPLETO TORKE</p>
+          <p class="text-gray-600 text-xs">Ref: 16440431</p>
+          <p class="font-medium text-black">41,99€</p>
+        </div>
+      </div>
+
+      <div class="suggestion-card bg-white p-4 rounded shadow">
+        <img src="../assets/images/Capacete3.jpg" alt="Capacete3" class="w-full h-32 object-contain mb-2" />
+        <div class="caption-wrapper">
+          <p class="product-name font-medium">Capacete de Segurança JSP EVO VISTAlens</p>
+          <p class="text-gray-600 text-xs">Ref: 83685541</p>
+          <p class="font-medium text-black">69,80€</p>
+        </div>
+      </div>
+
+      <div class="suggestion-card bg-white p-4 rounded shadow">
+        <img src="../assets/images/Capacete4.jpg" alt="Capacete4" class="w-full h-32 object-contain mb-2" />
+        <div class="caption-wrapper">
+          <p class="product-name font-medium">Capacete amarelo com fecho Securx (52–64 cm)</p>
+          <p class="text-gray-600 text-xs">Ref: 90234281</p>
+          <p class="font-medium text-black">25,99€</p>
+        </div>
+      </div>
+
+      <div class="suggestion-card bg-white p-4 rounded shadow">
+        <img src="../assets/images/Capacete5.jpg" alt="Capacete5" class="w-full h-32 object-contain mb-2" />
+        <div class="caption-wrapper">
+          <p class="product-name font-medium">Capacete vermelho com fecho Securx (52–64 cm)</p>
+          <p class="text-gray-600 text-xs">Ref: 87028955</p>
+          <p class="font-medium text-black">30,99€</p>
+        </div>
+      </div>
+
+      <div class="suggestion-card bg-white p-4 rounded shadow">
+        <img src="../assets/images/Capacete6.jpg" alt="Capacete6" class="w-full h-32 object-contain mb-2" />
+        <div class="caption-wrapper">
+          <p class="product-name font-medium">Capacete azul com fecho Securx (52–64 cm)</p>
+          <p class="text-gray-600 text-xs">Ref: 87028952</p>
+          <p class="font-medium text-black">30,99€</p>
+        </div>
+      </div>
+
+      <div class="suggestion-card bg-white p-4 rounded shadow">
+        <img src="../assets/images/Capacete7.jpg" alt="Capacete7" class="w-full h-32 object-contain mb-2" />
+        <div class="caption-wrapper">
+          <p class="product-name font-medium">Portwest PW50ORR Elmetto Edurance (55–62)</p>
+          <p class="text-gray-600 text-xs">Ref: 84532909</p>
+          <p class="font-medium text-black">7,60€</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>   
+
+    <!-- Comentários de Clientes-->
+    <section class="customer-reviews mt-16 mb-12">
+      <div class="container mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-4">Comentários de Clientes</h2>
+
+      <!-- Comentários -->
+      <div id="comments" class="space-y-6">
+        <div class="bg-white p-6 rounded shadow" data-rating="5">
+          <p class="text-black-700 mb-4 font-bold">“Entrega em condições e sem problemas. Excelente!”</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Joana Ferreira" class="w-10 h-10 rounded-full object-cover" />
+              <div>
+                <h4 class="font-medium text-sm">Joana Ferreira</h4>
+                <p class="text-gray-500 text-sm">Cliente há 3 meses</p>
+              </div>
+            </div>
+            <div class="text-yellow-400 text-xl">★★★★★</div>
+          </div>
+        </div>
+      
+        <div class="bg-white p-6 rounded shadow" data-rating="4">
+          <p class="text-black-700 mb-4 font-bold">“Barato para renovar pinturas na minha casa.”</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Pinto" class="w-10 h-10 rounded-full object-cover" />
+              <div>
+                <h3 class="font-medium text-lsm">Carlos Pinto</h3>
+                <p class="text-gray-500 text-sm">Cliente há 3 semanas</p>
+              </div>
+            </div>
+            <div class="text-yellow-400 text-xl">★★★★☆</div>
+          </div>
+        </div>
+      
+        <div class="bg-white p-6 rounded shadow" data-rating="5">
+          <p class="text-black-700 mb-4 font-bold">“Produto de qualidade. Fiquei muito satisfeita com a compra!”</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rita Gomes" class="w-10 h-10 rounded-full object-cover" />
+              <div>
+                <h3 class="font-medium text-sm">Rita Gomes</h3>
+                <p class="text-gray-500 text-sm">Cliente há 5 meses</p>
+              </div>
+            </div>
+            <div class="text-yellow-400 text-xl">★★★★★</div>
+          </div>
+        </div>
+      </div>      
+    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-white text-gray-900 py-12 mt-16">
-    <div class="container mx-auto px-6">
-      <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
-          <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
-          <ul class="flex space-x-4">
-            <li><a href="#"><i class="fab fa-facebook-f text-gray-600 hover:text-gray-900"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram text-gray-600 hover:text-gray-900"></i></a></li>
-            <li><a href="#"><i class="fab fa-x-twitter text-gray-600 hover:text-gray-900"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin-in text-gray-600 hover:text-gray-900"></i></a></li>
-            <li><a href="#"><i class="fab fa-youtube text-gray-600 hover:text-gray-900"></i></a></li>
-          </ul>
+    <footer class="bg-white text-gray-900 py-12">
+        <div class="container mx-auto px-36">
+            <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+                    <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="md:text-left align-contacts">
+                    <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
+                    <p class="text-gray-600 mb-2">
+                        <span class="font-semibold">Email:</span> brico.obra@sapo.pt
+                    </p>
+                    <p class="text-gray-600">
+                        <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+                <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+            </div>
         </div>
-        <div>
-          <h4 class="text-m font-semibold mb-4">Contactos</h4>
-          <p class="text-gray-600 mb-2"><span class="font-semibold">Email:</span> brico.obra@sapo.pt</p>
-          <p class="text-gray-600"><span class="font-semibold">Telefone:</span> 213 456 789</p>
-        </div>
-      </div>
-      <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
-        <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
   <!-- Script -->
   <script>
@@ -150,5 +273,15 @@
       window.location.href = "carrinho.html"; // redireciona para o carrinho
     }
   </script>
+      <script src="../js/searchBar.js"></script>
+    <script>
+    window.addEventListener("DOMContentLoaded", function() {
+        if (typeof initSearchBar === "function") {
+        initSearchBar();
+        } else {
+        console.error("initSearchBar não encontrada");
+        }
+    });
+    </script>
 </body>
 </html>

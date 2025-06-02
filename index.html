@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="../css/produto.css" />
+    <link rel="stylesheet" href="css/produto.css" />
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- Header -->
@@ -23,7 +23,7 @@
             <div class="hidden md:block w-1/2">
                 <form id="searchForm" class="relative">
                     <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
-                    <button type="button" id="searchBtn" class="hidden"></button>
+                    <button type="submit" id="searchBtn" class="hidden"></button>
 
                 <input
                     type="text"
@@ -103,7 +103,7 @@
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Ferramentas</a>
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Materiais</a>
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Iluminação</a>
-                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">(...)</a>
+                            <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Tintas</a>
                         </div>
                     </div>
                     <a href="#" class="text-gray-800 hover:text-blue-600 font-semibold">Promoções</a>
@@ -119,7 +119,7 @@
                     <img src="assets/images/tinta_branca.jpg" alt="Tinta" class="w-full h-48 object-contain">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                            <a href="/html/produto_Tinta.html">Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC</a>
+                            <a href="html/produto_Tinta.html">Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC</a>
                         </h3>
                         <p class="text-gray-600">Ref 18725826</p>
                         <p class="text-black-600">76,99€</p>
@@ -129,7 +129,7 @@
                     <img src="assets/images/chapa.jpg" alt="Chapa" class="w-full h-48 object-contain">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                            <a href="/html/produto_Painel.html"> Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho</a>
+                            <a href="html/produto_Painel.html"> Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho</a>
                         </h3>
                         <p class="text-gray-600">Ref 81946410</p>
                         <p class="text-black-600">21,99€/ m² </p>
@@ -140,7 +140,7 @@
                     <img src="assets/images/placa_melamina.jpg" alt="Placa de Melamina" class="w-full h-48 object-contain">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                            <a href="/html/produto_placa.html">Placa de melamina BRANCA LISA 2440X1220X19MM</a>
+                            <a href="html/produto_placa.html">Placa de melamina BRANCA LISA 2440X1220X19MM</a>
                         </h3>
                         <p class="text-gray-600">Ref 10497095</p>
                         <p class="text-black-600">34,18€</p>
@@ -212,9 +212,20 @@
     </footer>
 
     <script src="js/loadScrollAnimations.js"></script>
-    <script type="module">
-        import { initSearchBar } from "../js/searchBar.js";
-        window.addEventListener("DOMContentLoaded", initSearchBar);
+    <script src="../js/searchBar.js"></script>
+    <script>
+    window.addEventListener("DOMContentLoaded", function() {
+        if (typeof initSearchBar === "function") {
+        initSearchBar();
+        } else {
+        console.error("initSearchBar não encontrada");
+        }
+    });
     </script>
+
+
+
+    <script src="js/searchBar.js"></script>
+
 </body>
 </html>
