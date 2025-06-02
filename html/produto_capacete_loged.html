@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capacete DELTAPLUS - Brico-Obra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/produto.css" />
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- Header -->
+  <header class="fixed w-full bg-white backdrop-blur-sm z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="../assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+        <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+      </div>
+
+      <!-- Search Bar -->
+<div class="hidden md:block w-1/2">
+  <form id="searchForm" class="relative">
+    <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
+    <button type="button" id="searchBtn" class="hidden"></button>
+
+    <input
+      type="text"
+      id="searchInput"
+      name="q"
+      placeholder="O que procuras?"
+      autocomplete="off"
+      class="w-full rounded-full border border-gray-300 px-4 py-2 pr-12 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      type="submit"
+      class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600"
+      aria-label="Pesquisar"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" />
+      </svg>
+    </button>
+  </form>
+</div>
+
+      <!-- Icons -->
+      <div class="flex items-center space-x-6">
+        <div class="flex flex-col items-center">
+          <a href="../html/index_loged.html" class="text-gray-600 hover:text-blue-600">
+            <img src="../assets/icons/home.png" class="h-6 w-6" />
+          </a>
+          <span class="text-sm text-black">Início</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600" onclick="event.stopPropagation()">
+            <img src="../assets/icons/cart_black.png" class="h-7 w-7" />
+          </a>
+          <span class="text-sm text-black">Carrinho</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <a href="../html/contaCliente.html" class="text-gray-600 hover:text-blue-600">
+            <img src="../assets/images/user.jpg" class="h-6 w-6" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="pt-24">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="w-full md:w-1/2">
+          <img src="../assets/images/Capacete1.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
+        </div>
+        <div class="w-full md:w-1/2">
+          <h1 class="text-3xl font-bold text-gray-800 mb-4">Capacete de proteção DELTAPLUS</h1>
+          <div class="rating flex items-center mb-4">
+            <span class="text-yellow-400 text-xl mr-2">★★★★☆</span>
+            <span class="text-gray-600">(105 avaliações)</span>
+          </div>
+          <p class="text-gray-700 mb-4">
+            Capacete de proteção da marca DELTAPLUS, com alta resistência a impactos e design ergonómico para uso prolongado. Ideal para obras, estaleiros e ambientes industriais.
+          </p>
+          <p class="text-gray-600 mb-2">Ref: 88035350</p>
+          <p class="text-2xl font-bold text-black mb-4">19,99€</p>
+          <div class="product-actions">
+            <button 
+              onclick="adicionarAoCarrinhoEIr()" 
+              class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">
+              Adicionar ao Carrinho
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-gray-900 py-12 mt-16">
+    <div class="container mx-auto px-6">
+      <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+          <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+          <ul class="flex space-x-4">
+            <li><a href="#"><i class="fab fa-facebook-f text-gray-600 hover:text-gray-900"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram text-gray-600 hover:text-gray-900"></i></a></li>
+            <li><a href="#"><i class="fab fa-x-twitter text-gray-600 hover:text-gray-900"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in text-gray-600 hover:text-gray-900"></i></a></li>
+            <li><a href="#"><i class="fab fa-youtube text-gray-600 hover:text-gray-900"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-m font-semibold mb-4">Contactos</h4>
+          <p class="text-gray-600 mb-2"><span class="font-semibold">Email:</span> brico.obra@sapo.pt</p>
+          <p class="text-gray-600"><span class="font-semibold">Telefone:</span> 213 456 789</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+        <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function adicionarAoCarrinhoEIr() {
+      const produto = {
+        nome: "Capacete de proteção DELTAPLUS",
+        preco: 19.99,
+        imagem: "../assets/images/Capacete1.jpg",
+        ref: "88035350",
+        quantidade: 1
+      };
+
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const existente = carrinho.find(p => p.ref === produto.ref);
+
+      if (existente) {
+        existente.quantidade += 1;
+      } else {
+        carrinho.push(produto);
+      }
+
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      window.location.href = "carrinho.html"; // redireciona para o carrinho
+    }
+  </script>
+</body>
+</html>

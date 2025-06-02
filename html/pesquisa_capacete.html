@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pesquisa: Capacete - Brico-Obra</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/produto.css" />
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 right-0 bg-white backdrop-blur-sm z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+
+      <div class="flex items-center">
+        <img src="../assets/images/Logo.jpeg" alt="Logo Brico-Obra" class="h-10 w-10">
+        <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
+      </div>
+     
+
+      <!-- Barra de Pesquisa -->
+<div class="hidden md:block w-1/2">
+  <form id="searchForm" class="relative">
+    <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
+    <button type="button" id="searchBtn" class="hidden"></button>
+
+    <input
+      type="text"
+      id="searchInput"
+      name="q"
+      placeholder="O que procuras?"
+      autocomplete="off"
+      class="w-full rounded-full border border-gray-300 px-4 py-2 pr-12 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      type="submit"
+      class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600"
+      aria-label="Pesquisar"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" />
+      </svg>
+    </button>
+  </form>
+</div>
+
+      <!-- Icons -->
+
+      <div class="flex items-center space-x-6">
+        <div class="flex flex-col items-center">
+          <a href="/index.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+            <img src="../assets/icons/home.png" alt="Ícone de home" class="h-6 w-6">
+          </a>
+          <span class="text-sm text-black">Início</span>
+        </div>
+        <div class="flex flex-col items-center -mt-1">
+          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+            <img src="../assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
+          </a>
+          <span class="text-sm text-black">Carrinho</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <a href="signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+            <img src="../assets/icons/user_black.png" alt="Ícone de utilizador" class="h-6 w-6">
+          </a>
+          <span class="text-sm text-black">Iniciar sessão</span>
+        </div>
+      </div> 
+    </div>
+
+
+
+  </header>
+
+
+
+  <!-- TÍTULO DE RESULTADO -->
+  <main class="container mx-auto px-6 py-28">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Resultados da pesquisa por “Capacete”</h1>
+
+    <!-- LISTA DE PRODUTOS -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Produto 1 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+
+        <img
+          src="../assets/images/Capacete1.jpg"
+          alt="Capacete1"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Capacete DELTAPLUS </h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 18766811</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">19,99€</p>
+        <a href="produto_Capacete.html" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+      <!-- Produto 2 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+        <img
+          src="../assets/images/Capacete2.png"
+          alt="Capacete2"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Capacete de proteção COMPLETO TORKE</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 16440431</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">41,99€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+      <!-- Produto 3 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+        <img
+          src="../assets/images/Capacete3.jpg"
+          alt="Capacete3"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Capacete de Segurança JSP EVO VISTAlens</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 83685541</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">69,80€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+            <!-- Produto 4 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+
+        <img
+          src="../assets/images/Capacete4.jpg"
+          alt="Capacete4"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Capacete de segurança amarelo com fecho de cremalheira e pinhão ajustável Securx tamanho 52-64 cm Repamine</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 90234281</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">25,99€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+
+            <!-- Produto 5 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+
+        <img
+          src="../assets/images/Capacete5.jpg"
+          alt="Capacete5"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Capacete de segurança vermelho com fecho de cremalheira e pinhão ajustável Securx tamanho 52-64 cm Repamine</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 87028955</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">30,99€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+
+            <!-- Produto 6 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+
+        <img
+          src="../assets/images/Capacete6.jpg"
+          alt="Capacete6"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Capacete de segurança azul com fecho de cremalheira e pinhão ajustável Securx tamanho 52-64 cm Repamine</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 87028952</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">30,99€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+            <!-- Produto 7 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+
+        <img
+          src="../assets/images/Capacete7.jpg"
+          alt="Capacete7"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Portwest PW50ORR Elmetto Edurance Safety, Arancione, 55-62</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 84532909</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">7,60€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+            <!-- Produto 8 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+
+        <img
+          src="../assets/images/Capacete8.jpg"
+          alt="Capacete8"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Capacete de segurança regulável com fivela de queixo HDPE e PVC verde Dexter</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 88035352</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">4,99€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+            <!-- Produto 9 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-md transition p-4">
+
+        <img
+          src="../assets/images/Capacete9.jpg"
+          alt="Capacete9"
+          class="rounded-md mb-4 w-full h-[200px] object-contain" 
+          />
+
+        <h2 class="text-lg font-semibold text-gray-900 mb-1">Uvex Pheos Alpine Orange</h2>
+        <p class="text-sm text-gray-500 mb-2">Ref: 88305088</p>
+        <p class="text-blue-600 font-bold text-lg mb-4">162,99€</p>
+        <a href="#" class="inline-block bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700 transition">Ver produto</a>
+      </div>
+
+    </section>
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="bg-white text-gray-900 py-12 mt-16">
+    <div class="container mx-auto px-36">
+      <div class="border-t border-gray-200 mt-8 pt-8 flex flex-col md:flex-row justify-between gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">"Brico-Obra: Materiais de Bricolagem e Construção"</h3>
+          <h4 class="text-m font-semibold mb-4 mt-8">Redes Sociais</h4>
+          <ul class="flex space-x-4">
+            <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-x-twitter"></i></a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#" class="text-gray-600 hover:text-gray-900"><i class="fab fa-youtube"></i></a></li>
+          </ul>
+        </div>
+        <div class="md:text-left align-contacts">
+          <h4 class="text-m font-semibold mb-4 md:mt-0">Contactos</h4>
+          <p class="text-gray-600 mb-2">
+            <span class="font-semibold">Email:</span> brico.obra@sapo.pt
+          </p>
+          <p class="text-gray-600">
+            <span class="font-semibold">Telefone (rede fixa nacional):</span> 213 456 789
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+        <p>&copy; 2025 Brico-Obra. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/loadScrollAnimations.js"></script>
+  <script type="module">
+    import { initSearchBar } from "../js/searchBar.js";
+    window.addEventListener("DOMContentLoaded", initSearchBar);
+  </script>
+</body>
+</html>

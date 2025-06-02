@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC - Brico-Obra</title>
+  <title>Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho - Brico-Obra</title>
   <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/produto.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
 </head>
 <body class="bg-gray-50 font-sans">
   <!-- Header -->
@@ -19,14 +19,34 @@
         <span class="ml-3 text-xl font-bold text-gray-800 hidden md:block">Brico-Obra</span>
       </div>
       <!-- Search Bar -->
-      <div class="hidden md:block w-1/3 mx-8">
-        <div class="relative">
-          <input type="text" placeholder="O que procura na Brico-Obra?" class="w-full py-2 px-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-          <button class="absolute right-0 top-0 h-full px-4 text-gray-500 hover:text-blue-600">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
+<!-- Search Bar -->
+<div class="hidden md:block w-1/2">
+  <form id="searchForm" class="relative">
+    <ul id="suggestionsList" class="absolute left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 hidden"></ul>
+    <button type="button" id="searchBtn" class="hidden"></button>
+
+    <input
+      type="text"
+      id="searchInput"
+      name="q"
+      placeholder="O que procuras?"
+      autocomplete="off"
+      class="w-full rounded-full border border-gray-300 px-4 py-2 pr-12 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      type="submit"
+      class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600"
+      aria-label="Pesquisar"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-4.35-4.35M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" />
+      </svg>
+    </button>
+  </form>
+</div>
+
+
       <!-- Icons -->
       <div class="flex items-center space-x-6">
         <div class="flex flex-col items-center">
@@ -36,13 +56,13 @@
           <span class="text-sm text-black">Início</span>
         </div>
         <div class="flex flex-col items-center -mt-1">
-          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+          <a href="signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
             <img src="../assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
           </a>
           <span class="text-sm text-black">Carrinho</span>
         </div>
         <div class="flex flex-col items-center">
-            <a href="contaCliente.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+            <a href="../html/contaCliente.html" class="text-gray-600 hover:text-blue-600 icon-hover">
                 <img src="../assets/images/user.jpg" alt="Ícone de utilizador" class="h-10 w-10 rounded-full object-cover">
             </a>
         </div>
@@ -54,42 +74,25 @@
     <div class="container mx-auto px-6">
       <div class="product-info flex flex-col md:flex-row gap-8">
         <div class="product-image w-full md:w-1/2">
-          <img src="../assets/images/tinta_branca.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
+          <img src="/assets/images/chapa.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
         </div>
         <div class="product-details w-full md:w-1/2">
-          <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC</h1>
+          <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho</h1>
           <h2 class="text-xl font-semibold mb-2">Descrição do Produto</h2>
           <div class="rating flex items-center mb-4">
-            <span class="stars text-yellow-400 text-xl mr-2">★★★★☆</span>
-            <span class="reviews text-gray-600">(125 avaliações)</span>
+            <span class="stars text-yellow-400 text-xl mr-2">★★★☆☆</span>
+            <span class="reviews text-gray-600">(78 avaliações)</span>
           </div>
           <p class="text-gray-700 mb-4">
-            Fácil de pintar com esta tinta. Uma pintura fácil rápida e simples. Permite poupar tempo e dinheiro porque tem primário. <br>
-            Pode ser para aplicado para uma parede de remodelação ou uma parede nova. Pode ser aplicada à pistola, uma vez que permite diluição ou aplicado normal com rolo / pincel.<br>
-            É um tinta regulada pela união europeia com A+ permitindo um ar mais limpo. Excelente rendimento, permitindo pintar até 210 m2. Resistente à lavagem, não perdendo o efeito mate. Tem proteção anti-fungos e humidade.</p>
-            <p class="text-gray-600">Ref 18725826</p>
+            Painel sanduíche com design de 5 ondas, dimensões de 4,5 metros de comprimento por 1 metro de largura, e espessura de 30 mm. 
+            Ideal para coberturas e revestimentos, oferece excelente isolamento térmico e resistência, além de um acabamento na cor vermelha vibrante que garante durabilidade e estética em construções industriais e comerciais.</p>
+            <p class="text-gray-600">Ref 81946410</p>
             <div class="product-price text-2xl font-bold mb-4">
-            <p class="text-black-600">76,99€</p>
+            <p class="text-black-600">21,99€/ m²</p>
+            <p class="text-gray-500 text-xs">Ou 98,96€</p>
           </div>
           <div class="product-actions">
-            <button id="addToCartBtn" class="bg-black text-white py-2 px-4 rounded hover:bg-black-700 transition">Adicionar ao Carrinho</button>
-            </div>
-            <!-- Popup Produto Esgotado -->
-            <div id="outOfStockPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
-            <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center">
-              <h3 class="text-xl font-bold mb-4 text-red-600">Produto esgotado neste momento</h3>
-              <button id="closePopupBtn" class="mt-4 px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Fechar</button>
-            </div>
-            </div>
-            <script>
-            document.getElementById('addToCartBtn').addEventListener('click', function(e) {
-              e.preventDefault();
-              document.getElementById('outOfStockPopup').classList.remove('hidden');
-            });
-            document.getElementById('closePopupBtn').addEventListener('click', function() {
-              document.getElementById('outOfStockPopup').classList.add('hidden');
-            });
-            </script>
+            <a href="signIn_Cliente.html" class="bg-black text-white py-2 px-4 rounded hover:bg-black-700 transition">Adicionar ao Carrinho</a>
           </div>
         </div>
       </div>
@@ -154,6 +157,7 @@
         </div>
       </div>
     </section>
+    
 
     <!-- Comentários de Clientes-->
     <section class="customer-reviews mt-16 mb-12">
@@ -163,45 +167,47 @@
       <!-- Comentários -->
       <div id="comments" class="space-y-6">
         <div class="bg-white p-6 rounded shadow" data-rating="5">
-          <p class="text-black-700 mb-4 font-bold">“Entrega em condições e sem problemas. Excelente!”</p>
+          <p class="text-black-700 mb-4 font-bold">“Entrega rápida e produto em excelente estado. Recomendo!”</p>
           <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Joana Ferreira" class="w-10 h-10 rounded-full object-cover" />
-              <div>
-                <h4 class="font-medium text-sm">Joana Ferreira</h4>
-                <p class="text-gray-500 text-sm">Cliente há 3 meses</p>
-              </div>
-            </div>
-            <div class="text-yellow-400 text-xl">★★★★★</div>
+        <div class="flex items-center space-x-3">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Miguel Santos" class="w-10 h-10 rounded-full object-cover" />
+          <div>
+            <h4 class="font-medium text-sm">Miguel Santos</h4>
+            <p class="text-gray-500 text-sm">Cliente há 2 meses</p>
+          </div>
+        </div>
+        <div class="text-yellow-400 text-xl">★★★★★</div>
           </div>
         </div>
       
         <div class="bg-white p-6 rounded shadow" data-rating="4">
-          <p class="text-black-700 mb-4 font-bold">“Barato para renovar pinturas na minha casa.”</p>
+          <p class="text-black-700 mb-4 font-bold">“Bom preço, mas a entrega demorou um pouco mais do que o esperado.”</p>
           <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Pinto" class="w-10 h-10 rounded-full object-cover" />
-              <div>
-                <h3 class="font-medium text-lsm">Carlos Pinto</h3>
-                <p class="text-gray-500 text-sm">Cliente há 3 semanas</p>
-              </div>
-            </div>
-            <div class="text-yellow-400 text-xl">★★★★☆</div>
+        <div class="flex items-center space-x-3">
+          <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Ana Costa" class="w-10 h-10 rounded-full object-cover" />
+          <div>
+            <h3 class="font-medium text-sm">Ana Costa</h3>
+            <p class="text-gray-500 text-sm">Cliente há 1 mês</p>
+          </div>
+        </div>
+        <div class="text-yellow-400 text-xl">★★★★☆</div>
           </div>
         </div>
       
         <div class="bg-white p-6 rounded shadow" data-rating="5">
-          <p class="text-black-700 mb-4 font-bold">“Produto de qualidade. Fiquei muito satisfeita com a compra!”</p>
+          <p class="text-black-700 mb-4 font-bold">“Produto excelente, superou as minhas expectativas!”</p>
           <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rita Gomes" class="w-10 h-10 rounded-full object-cover" />
-              <div>
-                <h3 class="font-medium text-sm">Rita Gomes</h3>
-                <p class="text-gray-500 text-sm">Cliente há 5 meses</p>
-              </div>
-            </div>
-            <div class="text-yellow-400 text-xl">★★★★★</div>
+        <div class="flex items-center space-x-3">
+          <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="João Almeida" class="w-10 h-10 rounded-full object-cover" />
+          <div>
+            <h3 class="font-medium text-sm">João Almeida</h3>
+            <p class="text-gray-500 text-sm">Cliente há 4 meses</p>
           </div>
+        </div>
+        <div class="text-yellow-400 text-xl">★★★★★</div>
+          </div>
+        </div>
+      </div>
         </div>
       </div>      
     </section>
@@ -239,5 +245,9 @@
   </footer>
 
   <script src="../js/loadScrollAnimations.js"></script>
+    <script type="module">
+        import { initSearchBar } from "../js/searchBar.js";
+        window.addEventListener("DOMContentLoaded", initSearchBar);
+    </script>
 </body>
 </html>

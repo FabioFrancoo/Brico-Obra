@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC - Brico-Obra</title>
+  <title>Placa de melamina BRANCA LISA 2440X1220X19MM - Brico-Obra</title>
   <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="../css/produto.css" />
   <link rel="stylesheet" href="../css/animations.css" />
   <link rel="stylesheet" href="../css/produto.css" />
 </head>
@@ -54,16 +53,15 @@
           <span class="text-sm text-black">Início</span>
         </div>
         <div class="flex flex-col items-center -mt-1">
-          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+          <a href="html/carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
             <img src="../assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
           </a>
           <span class="text-sm text-black">Carrinho</span>
         </div>
         <div class="flex flex-col items-center">
-          <a href="signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
-            <img src="../assets/icons/user_black.png" alt="Ícone de utilizador" class="h-6 w-6">
-          </a>
-          <span class="text-sm text-black">Iniciar sessão</span>
+            <a href="../html/contaCliente.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+                <img src="../assets/images/user.jpg" alt="Ícone de utilizador" class="h-10 w-10 rounded-full object-cover">
+            </a>
         </div>
       </div>
     </div>
@@ -73,25 +71,42 @@
     <div class="container mx-auto px-6">
       <div class="product-info flex flex-col md:flex-row gap-8">
         <div class="product-image w-full md:w-1/2">
-          <img src="../assets/images/tinta_branca.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
+          <img src="../assets/images/chapa.jpg" alt="Capacete DELTAPLUS" class="w-full h-auto object-contain">
         </div>
         <div class="product-details w-full md:w-1/2">
-          <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC</h1>
+          <h1 class="text-3xl font-bold text-gray-800 mb-6"><br><br>Placa de melamina BRANCA LISA 2440X1220X19MM</h1>
           <h2 class="text-xl font-semibold mb-2">Descrição do Produto</h2>
           <div class="rating flex items-center mb-4">
-            <span class="stars text-yellow-400 text-xl mr-2">★★★★☆</span>
-            <span class="reviews text-gray-600">(125 avaliações)</span>
+            <span class="stars text-yellow-400 text-xl mr-2">★★★☆☆</span>
+            <span class="reviews text-gray-600">(28 avaliações)</span>
           </div>
           <p class="text-gray-700 mb-4">
-            Fácil de pintar com esta tinta. Uma pintura fácil rápida e simples. Permite poupar tempo e dinheiro porque tem primário. <br>
-            Pode ser para aplicado para uma parede de remodelação ou uma parede nova. Pode ser aplicada à pistola, uma vez que permite diluição ou aplicado normal com rolo / pincel.<br>
-            É um tinta regulada pela união europeia com A+ permitindo um ar mais limpo. Excelente rendimento, permitindo pintar até 210 m2. Resistente à lavagem, não perdendo o efeito mate. Tem proteção anti-fungos e humidade.</p>
+            Placa de MDF revestida com melamina de alta qualidade na cor branca lisa, proporcionando acabamento uniforme, moderno e resistente.<br>
+            Com medidas de 2440 mm de comprimento, 1220 mm de largura e 19 mm de espessura, é amplamente utilizada na fabricação de móveis planejados, painéis, prateleiras e divisórias. 
+            Destaca-se pela durabilidade, fácil manutenção e excelente custo-benefício para projetos de marcenaria e design de interiores.</p>
             <p class="text-gray-600">Ref 18725826</p>
             <div class="product-price text-2xl font-bold mb-4">
-            <p class="text-black-600">76,99€</p>
+            <p class="text-black-600">34,18€</p>
           </div>
           <div class="product-actions">
-            <a href="signIn.html" class="bg-black text-white py-2 px-4 rounded hover:bg-black-700 transition">Adicionar ao Carrinho</a>
+            <button id="addToCartBtn" class="bg-black text-white py-2 px-4 rounded hover:bg-black-700 transition">Adicionar ao Carrinho</button>
+            </div>
+            <!-- Popup Produto Esgotado -->
+            <div id="outOfStockPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center">
+              <h3 class="text-xl font-bold mb-4 text-red-600">Produto esgotado neste momento</h3>
+              <button id="closePopupBtn" class="mt-4 px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Fechar</button>
+            </div>
+            </div>
+            <script>
+            document.getElementById('addToCartBtn').addEventListener('click', function(e) {
+              e.preventDefault();
+              document.getElementById('outOfStockPopup').classList.remove('hidden');
+            });
+            document.getElementById('closePopupBtn').addEventListener('click', function() {
+              document.getElementById('outOfStockPopup').classList.add('hidden');
+            });
+            </script>
           </div>
         </div>
       </div>
@@ -103,60 +118,38 @@
         <h2 class="text-2xl font-bold mb-6 animate-on-scroll">Produtos Relacionados</h2>
         <div class="suggestions-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 animate-on-scroll">
           <div class="suggestion-card bg-white p-4 rounded shadow">
-            <img src="../assets/images/tinta1.jpg" alt="Produto 1" class="w-full h-32 object-contain mb-2" />
-            <div class="caption-wrapper">
-              <p class="product-name font-medium">Tinta interior e exterior mate 15 L branco Dyrup Pro 3 em 1</p>
-              <p class="text-gray-600 text-xs">Ref 84684317</p>
-              <p class="font-medium text-black">62,99€</p>
-              <p class="text-gray-600 text-xs">Ou 4,20 € / Litro</p>
-            </div>
+            <img src="../assets/images/tinta1.jpg" alt="Produto 1" class="w-full h-32 object-contain mb-2">
+            <p class="product-name font-medium">Tinta Acrílica 5L</p>
+            <p class="product-price text-sm text-gray-700">€14,90</p>
           </div>
           <div class="suggestion-card bg-white p-4 rounded shadow">
-            <img src="../assets/images/rolo.jpg" alt="Produto 2" class="w-full h-32 object-contain mb-2" />
-            <div class="caption-wrapper">
-              <p class="product-name font-medium">Rolo Dexter universal paredes e tetos 25cm</p>
-              <p class="text-gray-600 text-xs">Ref 82799953</p>
-              <p class="font-medium text-black">4,99€</p>
-            </div>
+            <img src="../assets/images/rolo.jpg" alt="Produto 2" class="w-full h-32 object-contain mb-2">
+            <p class="product-name font-medium">Rolo de Pintura</p>
+            <p class="product-price text-sm text-gray-700">€5,50</p>
           </div>
           <div class="suggestion-card bg-white p-4 rounded shadow">
-            <img src="../assets/images/tinta2.jpg" alt="Produto 3" class="w-full h-32 object-contain mb-2" />
-            <div class="caption-wrapper">
-              <p class="product-name font-medium">Tinta de interior decorativa LUXENS BASIC MATE 4L BLACK</p>
-              <p class="text-gray-600 text-xs">Ref 82401638</p>
-              <p class="font-medium text-black">18,99€</p>
-              <p class="text-gray-600 text-xs">Ou 4,75 € / Litro</p>
-            </div>
+            <img src="../assets/images/tinta2.jpg" alt="Produto 3" class="w-full h-32 object-contain mb-2">
+            <p class="product-name font-medium">Tinta Anti-Humidade 10L</p>
+            <p class="product-price text-sm text-gray-700">€24,99</p>
           </div>
           <div class="suggestion-card bg-white p-4 rounded shadow">
-            <img src="../assets/images/diluente.jpg" alt="Produto 4" class="w-full h-32 object-contain mb-2" />
-            <div class="caption-wrapper">
-              <p class="product-name font-medium">Diluente sintético LACRILAR USO GERAL 1L</p>
-              <p class="text-gray-600 text-xs">Ref 82393193</p>
-              <p class="font-medium text-black">4,89€</p>
-            </div>
+            <img src="../assets/images/diluente.jpg" alt="Produto 4" class="w-full h-32 object-contain mb-2">
+            <p class="product-name font-medium">Pincel Profissional</p>
+            <p class="product-price text-sm text-gray-700">€3,75</p>
           </div>
           <div class="suggestion-card bg-white p-4 rounded shadow">
-            <img src="../assets/images/tinta3.jpg" alt="Produto 5" class="w-full h-32 object-contain mb-2" />
-            <div class="caption-wrapper">
-              <p class="product-name font-medium">Tinta de interior mate BRANCO 15L BARBOT</p>
-              <p class="text-gray-600 text-xs">Ref 82179513</p>
-              <p class="font-medium text-black">34,99€</p>
-              <p class="text-gray-600 text-xs">Ou 2,33 € / Litro</p>
-            </div>
+            <img src="../assets/images/tinta3.jpg" alt="Produto 5" class="w-full h-32 object-contain mb-2">
+            <p class="product-name font-medium">Massa para Fissuras</p>
+            <p class="product-price text-sm text-gray-700">€8,20</p>
           </div>
           <div class="suggestion-card bg-white p-4 rounded shadow">
-            <img src="../assets/images/fita-cola.png" alt="Produto 6" class="w-full h-32 object-contain mb-2" />
-            <div class="caption-wrapper">
-              <p class="product-name font-medium">Pack 3 fitas de pintor 45 m x 48 mm Nespoli</p>
-              <p class="text-gray-600 text-xs">Ref 82556833</p>
-              <p class="font-medium text-black">4,49€</p>
-            </div>
+            <img src="../assets/images/fita-cola.png" alt="Produto 6" class="w-full h-32 object-contain mb-2">
+            <p class="product-name font-medium">Fita de Pintura Azul</p>
+            <p class="product-price text-sm text-gray-700">€2,99</p>
           </div>
         </div>
       </div>
     </section>
-    
 
     <!-- Comentários de Clientes-->
     <section class="customer-reviews mt-16 mb-12">
@@ -172,7 +165,7 @@
               <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Joana Ferreira" class="w-10 h-10 rounded-full object-cover" />
               <div>
                 <h4 class="font-medium text-sm">Joana Ferreira</h4>
-                <p class="text-gray-500 text-sm">Cliente há 3 meses</p>
+                <p class="text-gray-500 text-sm">Cliente há 3 anos</p>
               </div>
             </div>
             <div class="text-yellow-400 text-xl">★★★★★</div>
@@ -186,7 +179,7 @@
               <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Pinto" class="w-10 h-10 rounded-full object-cover" />
               <div>
                 <h3 class="font-medium text-lsm">Carlos Pinto</h3>
-                <p class="text-gray-500 text-sm">Cliente há 3 semanas</p>
+                <p class="text-gray-500 text-sm">Cliente há 3 anos</p>
               </div>
             </div>
             <div class="text-yellow-400 text-xl">★★★★☆</div>
@@ -200,7 +193,7 @@
               <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rita Gomes" class="w-10 h-10 rounded-full object-cover" />
               <div>
                 <h3 class="font-medium text-sm">Rita Gomes</h3>
-                <p class="text-gray-500 text-sm">Cliente há 5 meses</p>
+                <p class="text-gray-500 text-sm">Cliente há 5 anos</p>
               </div>
             </div>
             <div class="text-yellow-400 text-xl">★★★★★</div>
