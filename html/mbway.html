@@ -66,9 +66,39 @@
             </div>
             <div class="buttons-container">
                 <button type="submit" class="btn-payment">
-                    <a href="pedidofinalizado.html">Finalizar Pedido</a>
+                    Finalizar Pedido
                 </button>
             </div>
+            <script>
+                document.querySelector('.btn-payment').addEventListener('click', function () {
+                    window.location.href = 'pedidofinalizado.html';
+                });
+            </script>
+            <style>
+                .buttons-container {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+                }
+
+                .btn-payment {
+                    background: linear-gradient(135deg, #28a745, #218838);
+                    color: #fff;
+                    padding: 14px 32px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: background 0.3s ease, transform 0.2s ease;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .btn-payment:hover {
+                    background: linear-gradient(135deg, #218838, #1e7e34);
+                    transform: scale(1.05);
+                }
+            </style>
         </form>
     </div>
 
