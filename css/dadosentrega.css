@@ -57,7 +57,7 @@ body {
 }
 
 .btn-home:hover {
-    background-color: black;
+    background-color: #f3f4f6;
     color: white;
 }
 
@@ -167,7 +167,20 @@ body {
 }
 
 .delivery-form .btn-premium:hover {
+    background-color: #f3f4f6;
+    color: #FE7501;
+}
+
+/* Style for the selected premium button */
+.delivery-form .btn-premium.selected {
     background-color: #FE7501;
+    color: white;
+}
+
+/* Hover effect for the selected premium button */
+.delivery-form .btn-premium.selected:hover {
+    background-color: #e06a00;
+    border: 2px solid #e06a00;
     color: white;
 }
 

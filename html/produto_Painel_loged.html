@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/produto.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
 </head>
 <body class="bg-gray-50 font-sans">
   <!-- Header -->
@@ -50,19 +51,19 @@
       <!-- Icons -->
       <div class="flex items-center space-x-6">
         <div class="flex flex-col items-center">
-          <a href="/index.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+          <a href="index_loged.html" class="text-gray-600 hover:text-blue-600 icon-hover">
             <img src="../assets/icons/home.png" alt="Ícone de home" class="h-6 w-6">
           </a>
           <span class="text-sm text-black">Início</span>
         </div>
         <div class="flex flex-col items-center -mt-1">
-          <a href="signIn.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+          <a href="carrinho.html" class="text-gray-600 hover:text-blue-600 icon-hover">
             <img src="../assets/icons/cart_black.png" alt="Ícone de carrinho" class="h-7 w-7">
           </a>
           <span class="text-sm text-black">Carrinho</span>
         </div>
         <div class="flex flex-col items-center">
-            <a href="../html/contaCliente.html" class="text-gray-600 hover:text-blue-600 icon-hover">
+            <a href="contaCliente.html" class="text-gray-600 hover:text-blue-600 icon-hover">
                 <img src="../assets/images/user.jpg" alt="Ícone de utilizador" class="h-10 w-10 rounded-full object-cover">
             </a>
         </div>
@@ -92,7 +93,24 @@
             <p class="text-gray-500 text-xs">Ou 98,96€</p>
           </div>
           <div class="product-actions">
-            <a href="signIn_Cliente.html" class="bg-black text-white py-2 px-4 rounded hover:bg-black-700 transition">Adicionar ao Carrinho</a>
+            <button id="addToCartBtn" class="bg-black text-white py-2 px-4 rounded hover:bg-black-700 transition">Adicionar ao Carrinho</button>
+            </div>
+            <!-- Popup Produto Esgotado -->
+            <div id="outOfStockPopup" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center">
+              <h3 class="text-xl font-bold mb-4 text-red-600">Produto esgotado neste momento</h3>
+              <button id="closePopupBtn" class="mt-4 px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Fechar</button>
+            </div>
+            </div>
+            <script>
+            document.getElementById('addToCartBtn').addEventListener('click', function(e) {
+              e.preventDefault();
+              document.getElementById('outOfStockPopup').classList.remove('hidden');
+            });
+            document.getElementById('closePopupBtn').addEventListener('click', function() {
+              document.getElementById('outOfStockPopup').classList.add('hidden');
+            });
+            </script>
           </div>
         </div>
       </div>

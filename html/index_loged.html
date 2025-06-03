@@ -69,7 +69,6 @@
     </header>
 
     <main class="pt-16">
-        <!-- Banner Section -->
         <div class="banner-image flex items-center justify-center">
             <div class="text-center px-4 animate-on-load">
                 <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Brico-Obra</h1>
@@ -82,23 +81,21 @@
                     </div>
                 </div>
                 <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Descubra quem somos, e o que temos para lhe oferecer!</p>
-                <button class="banner-button" onclick="window.location.href='../html/about_loged.html';">
+                <button class="banner-button" onclick="window.location.href='about_loged.html'">
                     Explorar Agora <i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Navigation -->
-        <div class="bg-gray-200 py-2">
-            <div class="container mx-auto px-6">
-                <nav class="flex space-x-8">
+        <div class="bg-gray-200 py-2 relative z-30"> <div class="container mx-auto px-6">
+                <nav class="flex space-x-8 animate-on-load">
                     <a href="#" class="text-gray-800 hover:text-blue-600 font-semibold">Novidades</a>
                     <div class="relative group">
                         <a href="#" class="text-gray-800 hover:text-blue-600 font-semibold flex items-center">
                             Produtos
                             <i class="fas fa-chevron-down ml-2 text-sm"></i>
                         </a>
-                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2 w-max z-10">
+                        <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md py-2 w-max z-40">
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Ferramentas</a>
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Materiais</a>
                             <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Iluminação</a>
@@ -110,66 +107,70 @@
             </div>
         </div>
 
-        <!-- Featured Categories -->
         <div class="container mx-auto px-6 py-16">
             <h2 class="text-4xl font-bold text-gray-800 mb-12 animate-on-scroll">Best-sellers do último mês</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll">
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="../assets/images/tinta_branca.jpg" alt="Tinta" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                            <a href="../html/produto_Tinta_loged.html">Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC</a>
-                        </h3>
-                        <p class="text-gray-600">Ref 18725826</p>
-                        <p class="text-black-600">76,99€</p>
-                    </div>
+                    <a href="produto_Tinta_loged.html">
+                        <img src="../assets/images/tinta_branca.jpg" alt="Tinta" class="w-full h-48 object-contain">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                Tinta de interior mate 2 EM 1 BRANCO 15L ROBBIALAC
+                            </h3>
+                            <p class="text-gray-600">Ref 18725826</p>
+                            <p class="text-black-600">76,99€</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="../assets/images/chapa.jpg" alt="Chapa" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                            <a href="../html/produto_Painel_loged.html">Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho</a>
-                        </h3>
-                        <p class="text-gray-600">Ref 81946410</p>
-                        <p class="text-black-600">21,99€/ m² </p>
-                        <p class="text-gray-600">ou 98,96€</p>
-                    </div>
+                    <a href="produto_Painel_loged.html">
+                        <img src="../assets/images/chapa.jpg" alt="Chapa" class="w-full h-48 object-contain">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                Painel sandwich 5 ondas 4,5x1 m 30 mm vermelho
+                            </h3>
+                            <p class="text-gray-600">Ref 81946410</p>
+                            <p class="text-black-600">21,99€/ m² </p>
+                            <p class="text-gray-600">ou 98,96€</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-                    <img src="../assets/images/placa_melamina.jpg" alt="Placa de Melamina" class="w-full h-48 object-contain">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                            <a href="../html/produto_placa_loged.html">Placa de melamina BRANCA LISA 2440X1220X19MM</a>
-                        </h3>
-                        <p class="text-gray-600">Ref 10497095</p>
-                        <p class="text-black-600">34,18€</p>
-                    </div>
+                    <a href="produto_placa_loged.html">
+                        <img src="../assets/images/placa_melamina.jpg" alt="Placa de Melamina" class="w-full h-48 object-contain">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                                Placa de melamina BRANCA LISA 2440X1220X19MM
+                            </h3>
+                            <p class="text-gray-600">Ref 10497095</p>
+                            <p class="text-black-600">34,18€</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Services Section -->
         <div class="bg-gray-100 py-16">
             <div class="container mx-auto px-6">
                 <h2 class="text-4xl font-bold text-gray-800 mb-12 animate-on-scroll">O que nos destaca?</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll">
                     <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
                         <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-truck text-blue-600 text-2xl"></i>
+                            <i class="fas fa-truck text-orange-500 text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-3">Entrega Rápida</h3>
                         <p class="text-gray-600">Entrega em 24-48h para a maioria dos produtos na área metropolitana.</p>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
                         <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-headset text-blue-600 text-2xl"></i>
+                            <i class="fas fa-headset text-orange-500 text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-3">Atendimento Personalizado</h3>
-                        <p class="text-gray-600">Nossa equipe está pronta para ajudar com qualquer dúvida técnica.</p>
+                        <p class="text-gray-600">A nossa equipe está pronta para ajudar com qualquer dúvida técnica.</p>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition duration-300">
                         <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                            <i class="fas fa-undo-alt text-blue-600 text-2xl"></i>
+                            <i class="fas fa-undo-alt text-orange-500 text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-3">Devolução Fácil</h3>
                         <p class="text-gray-600">30 dias para devolução de produtos não utilizados e em perfeito estado.</p>
