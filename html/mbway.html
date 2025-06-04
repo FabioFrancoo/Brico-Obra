@@ -65,12 +65,63 @@
                 <input type="text" id="postalcode" name="postalcode" placeholder="Código Postal" required />
             </div>
             <div class="buttons-container">
-                <button type="submit" class="btn-payment">
+                <button type="submit" class="btn-payment-final">
                     Finalizar Pedido
                 </button>
             </div>
             <script>
-                document.querySelector('.btn-payment').addEventListener('click', function () {
+                document.addEventListener('DOMContentLoaded', function() {
+                    const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
+                    if (!deliveryData.country) {
+                        // This check is for ensuring delivery data exists before proceeding to payment.
+                        // window.location.href = 'dadosentrega.html';
+                    }
+                });
+
+                document.querySelector('.btn-payment').addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    // Get payment data (MBWay specific)
+                    const phoneNumber = document.getElementById('phone')?.value;
+
+                    // Get billing data
+                    const name = document.getElementById('name').value;
+                    const nif = document.getElementById('nif').value;
+                    const address = document.getElementById('address').value;
+                    const floor = document.getElementById('floor').value;
+                    const postalcode = document.getElementById('postalcode').value;
+
+                    // Validate if fields are filled before saving and redirecting
+                    if (!phoneNumber || !name || !nif || !address || !postalcode) {
+                        alert('Por favor, preencha todos os campos obrigatórios.');
+                        return; // Stop the function if validation fails
+                    }
+
+                    // Retrieve cart data and totals already saved by carrinho.js
+                    const cartData = JSON.parse(localStorage.getItem('bricoObraCart')) || [];
+                    const orderTotals = JSON.parse(localStorage.getItem('bricoObraTotals')) || {};
+
+                    // Create an object to store all final order details
+                    const finalOrderDetails = {
+                        paymentMethod: 'MBWay', // Explicitly set for MBWay page
+                        paymentDetails: {
+                            phoneNumber: phoneNumber
+                        },
+                        billingInfo: {
+                            name: name,
+                            nif: nif,
+                            address: address,
+                            floor: floor,
+                            postalcode: postalcode
+                        },
+                        cartItems: cartData,
+                        totals: orderTotals
+                    };
+
+                    // Save the complete order details to localStorage
+                    localStorage.setItem('bricoObraFinalOrder', JSON.stringify(finalOrderDetails));
+
+                    // Redirect to the finalization page
                     window.location.href = 'pedidofinalizado.html';
                 });
             </script>
@@ -81,22 +132,22 @@
                     margin-top: 20px;
                 }
 
-                .btn-payment {
-                    background: linear-gradient(135deg, #28a745, #218838);
-                    color: #fff;
-                    padding: 14px 32px;
-                    font-size: 16px;
-                    font-weight: bold;
+                .btn-payment-final {
+                    flex: 1;
+                    padding: 12px 0;
                     border: none;
-                    border-radius: 8px;
+                    background-color: #FE7501;;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 16px;
+                    border-radius: 10px;
                     cursor: pointer;
-                    transition: background 0.3s ease, transform 0.2s ease;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    transition: background-color 0.3s;
                 }
 
-                .btn-payment:hover {
-                    background: linear-gradient(135deg, #218838, #1e7e34);
-                    transform: scale(1.05);
+                .btn-payment-final:hover {
+                    background: #e06a00;
+                    transform: scale(1.02);
                 }
             </style>
         </form>
@@ -126,7 +177,6 @@
                 &copy; 2025 Brico-Obra. Todos os direitos reservados.
             </div>
         </div>
-        <script src="../js/carrinho.js"></script>
     </footer>
 </body>
 </html>

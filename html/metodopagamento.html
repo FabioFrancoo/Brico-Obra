@@ -77,14 +77,13 @@
             </div>
         </footer>
         <script>
-            // Script para lidar com o armazenamento local e navegação
+            // Script to handle local storage and navigation
             document.addEventListener('DOMContentLoaded', () => {
                 const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
                 if (!deliveryData.country) {
                     window.location.href = 'dadosentrega.html';
                 }
             });
-            </script>
-        <script src="../js/carrinho.js"></script>
-    </body>
+        </script>
+        </body>
 </html>

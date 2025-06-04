@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (editingProductId) {
         // Change button text to "Guardar Alterações"
         submitBtn.textContent = "Guardar Alterações";
-        
+
         // Load product data if in edit mode
         const products = JSON.parse(localStorage.getItem("bricoObraSupplierProducts")) || [];
         const productToEdit = products.find(p => p.id == editingProductId); // Use == for loose comparison if IDs are strings/numbers
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             productPricePerLitreInput.value = productToEdit.pricePerLitre || '';
             productStockInput.value = productToEdit.stock;
             productDescriptionInput.value = productToEdit.description || '';
-            
+
             // Set image preview
             if (productToEdit.image) {
                 imageBase64 = productToEdit.image;
@@ -149,7 +149,7 @@ submitBtn.addEventListener("click", function (event) {
     } else {
         // Check if reference already exists (for uniqueness)
         const existingProducts = JSON.parse(localStorage.getItem("bricoObraSupplierProducts")) || [];
-        const referenceExists = existingProducts.some(product => 
+        const referenceExists = existingProducts.some(product =>
             product.reference === reference && product.id != editingProductId // Exclude current product if editing
         );
         if (referenceExists) {
@@ -215,7 +215,6 @@ submitBtn.addEventListener("click", function (event) {
             supplierProducts[index] = product;
             alert("Produto atualizado com sucesso!");
         } else {
-            // This case should ideally not happen if productToEdit was found earlier
             alert("Erro: Produto a ser editado não encontrado.");
         }
     } else {
@@ -223,7 +222,7 @@ submitBtn.addEventListener("click", function (event) {
         supplierProducts.push(product);
         alert("Produto adicionado com sucesso!");
     }
-    
+
     localStorage.setItem("bricoObraSupplierProducts", JSON.stringify(supplierProducts));
     window.location.href = '../html/paginaFornecedor.html'; // Redirect to the products page
 });

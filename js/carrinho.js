@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartItems = document.querySelectorAll('.cart-item');
+    const checkoutButton = document.querySelector('.checkout-button');
 
     function saveCartToLocalStorage(cartData) {
         localStorage.setItem('bricoObraCart', JSON.stringify(cartData));
@@ -26,11 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
             cartData.push({ name, ref, price, quantity });
         });
 
-        console.log('Saving cart data to localStorage:', cartData);
-        // Save cart data to localStorage
+        console.log('Saving cart data to localStorage (bricoObraCart):', cartData);
         saveCartToLocalStorage(cartData);
 
-        // Update subtotal display
         const totalsRows = document.querySelectorAll('.totals-row');
         let subtotalElement = null;
         let deliveryElement = null;
@@ -42,20 +41,18 @@ document.addEventListener('DOMContentLoaded', () => {
             subtotalElement.textContent = subtotal.toFixed(2).replace('.', ',') + ' €';
         }
 
-        // Get delivery fee
-        let deliveryFee = 2.99; // Fixed delivery fee
+        let deliveryFee = 2.99;
 
         if (deliveryElement) {
             deliveryElement.textContent = deliveryFee.toFixed(2).replace('.', ',') + ' €';
         }
 
-        // Update total display
         const totalElement = document.querySelector('.totals-row.total-row .totals-value');
         if (totalElement) {
             const total = subtotal + deliveryFee;
             totalElement.textContent = total.toFixed(2).replace('.', ',') + ' €';
 
-            // Save totals to localStorage
+            console.log('Saving totals to localStorage (bricoObraTotals):', { subtotal: subtotal, deliveryFee: deliveryFee, total: total });
             localStorage.setItem('bricoObraTotals', JSON.stringify({
                 subtotal: subtotal,
                 deliveryFee: deliveryFee,
@@ -64,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Event listeners for quantity controls
     cartItems.forEach(item => {
         const minusBtn = item.querySelector('.quantity-btn.minus');
         const plusBtn = item.querySelector('.quantity-btn.plus');
@@ -79,10 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         plusBtn.addEventListener('click', () => {
             let currentValue = parseInt(quantityInput.value);
-            // Fix increment to add only 1
             quantityInput.value = currentValue + 1;
             updateTotals();
         });
+
+        quantityInput.addEventListener('change', function() {
+            let value = parseInt(this.value);
+            if (isNaN(value) || value < 1) {
+                this.value = 1;
+            }
+            updateTotals();
+        });
+    });
+
+    // Add event listener for the checkout button
+    checkoutButton.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default form submission
+
+        window.location.href = 'dadosentrega.html';
     });
 
     // Initial totals update on page load

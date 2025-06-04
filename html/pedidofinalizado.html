@@ -22,46 +22,77 @@
         <div class="pedido-finalizado">
             <h1>Pedido Finalizado</h1>
             <div id="resumo-carrinho"></div>
-            <div id="resumo-entrega"></div>
+            <div id="resumo-pagamento"></div> <div id="resumo-entrega"></div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Função para formatar valores
+            // Function to format currency values
             function formatCurrency(value) {
                 return parseFloat(value).toFixed(2).replace('.', ',') + ' €';
             }
             
-            // Recuperar dados do carrinho
-            const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
-            const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
+            // Retrieve the complete final order details from localStorage
+            const finalOrder = JSON.parse(localStorage.getItem('bricoObraFinalOrder')) || {};
+            console.log('Final Order retrieved on pedidofinalizado.html:', finalOrder); // Debugging line
 
-            // Mostrar resumo do carrinho
-            if (cartData.length > 0) {
-                const produto = cartData[0];
-                document.getElementById('resumo-carrinho').innerHTML = `
-                    <h2>Resumo do Carrinho</h2>
-                    <p><strong>Produto:</strong> ${produto.productName}</p>
-                    <p><strong>Referência:</strong> ${produto.productRef}</p>
-                    <p><strong>Quantidade:</strong> ${produto.quantity}</p>
-                    <p><strong>Preço unitário:</strong> ${produto.unitPrice.toFixed(2)} €</p>
-                    <p><strong>Subtotal:</strong> ${produto.subtotal.toFixed(2)} €</p>
-                    <p><strong>Taxa de entrega:</strong> ${produto.deliveryFee.toFixed(2)} €</p>
-                    <p><strong>Total:</strong> ${produto.total.toFixed(2)} €</p>
-                `;
+            const resumoCarrinhoDiv = document.getElementById('resumo-carrinho');
+            const resumoPagamentoDiv = document.getElementById('resumo-pagamento');
+            const resumoEntregaDiv = document.getElementById('resumo-entrega');
+
+            // Display cart summary
+            if (finalOrder.cartItems && finalOrder.cartItems.length > 0) {
+                let cartSummaryHtml = '<h2>Resumo do Carrinho</h2>';
+                finalOrder.cartItems.forEach(item => {
+                    cartSummaryHtml += `
+                        <p><strong>Produto:</strong> ${item.name}</p>
+                        <p><strong>Referência:</strong> ${item.ref}</p>
+                        <p><strong>Quantidade:</strong> ${item.quantity}</p>
+                        <p><strong>Preço unitário:</strong> ${formatCurrency(item.price)}</p>
+                        <hr>
+                    `;
+                });
+                if (finalOrder.totals) {
+                    cartSummaryHtml += `
+                        <p><strong>Subtotal:</strong> ${formatCurrency(finalOrder.totals.subtotal)}</p>
+                        <p><strong>Taxa de entrega:</strong> ${formatCurrency(finalOrder.totals.deliveryFee)}</p>
+                        <p><strong>Total:</strong> ${formatCurrency(finalOrder.totals.total)}</p>
+                    `;
+                }
+                resumoCarrinhoDiv.innerHTML = cartSummaryHtml;
+            } else {
+                resumoCarrinhoDiv.innerHTML = `<p>Nenhum item no carrinho.</p>`;
             }
 
-            // Mostrar dados de entrega
-            document.getElementById('resumo-entrega').innerHTML = `
-                <h2>Dados de Entrega</h2>
-                <p><strong>País:</strong> ${deliveryData.country || ''}</p>
-                <p><strong>Endereço:</strong> ${deliveryData.address || ''}</p>
-                <p><strong>Andar:</strong> ${deliveryData.floor || ''}</p>
-                <p><strong>Código Postal:</strong> ${deliveryData.postalcode || ''}</p>
-                <p><strong>Telefone:</strong> ${deliveryData.phone || ''}</p>
-                <p><strong>Observações:</strong> ${deliveryData.observations || ''}</p>
-            `;
+            // Display payment summary
+            if (finalOrder.paymentMethod) {
+                let paymentSummaryHtml = '<h2>Dados de Pagamento</h2>';
+                paymentSummaryHtml += `<p><strong>Método de Pagamento:</strong> ${finalOrder.paymentMethod}</p>`;
+                if (finalOrder.paymentDetails && finalOrder.paymentDetails.phoneNumber) {
+                    paymentSummaryHtml += `<p><strong>Número de Telefone (MBWay):</strong> ${finalOrder.paymentDetails.phoneNumber}</p>`;
+                } else if (finalOrder.paymentDetails && finalOrder.paymentDetails.cardNumber) {
+                    paymentSummaryHtml += `
+                        <p><strong>Número do Cartão (Multibanco):</strong> **** **** **** ${finalOrder.paymentDetails.cardNumber.slice(-4)}</p>
+                        <p><strong>Validade:</strong> ${finalOrder.paymentDetails.validity}</p>
+                    `;
+                }
+                resumoPagamentoDiv.innerHTML = paymentSummaryHtml;
+            }
+
+            // Display billing/delivery data (using billingInfo from finalOrder)
+            if (finalOrder.billingInfo) {
+                resumoEntregaDiv.innerHTML = `
+                    <h2>Dados de Faturação</h2>
+                    <p><strong>Nome:</strong> ${finalOrder.billingInfo.name || ''}</p>
+                    <p><strong>NIF:</strong> ${finalOrder.billingInfo.nif || ''}</p>
+                    <p><strong>Endereço:</strong> ${finalOrder.billingInfo.address || ''}</p>
+                    <p><strong>Andar:</strong> ${finalOrder.billingInfo.floor || 'N/A'}</p>
+                    <p><strong>Código Postal:</strong> ${finalOrder.billingInfo.postalcode || ''}</p>
+                `;
+            } else {
+                 resumoEntregaDiv.innerHTML = `<p>Nenhum dado de faturação encontrado.</p>`;
+            }
         });
     </script>
     <footer class="store-footer">
