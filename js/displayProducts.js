@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const noProductsMessage = document.getElementById("noProductsMessage");
 
     const initialFixedProducts = [
-        { id: 'prod_001', name: "Pincel caiar com cabo", reference: "84684317", price: 11.02, stock: 5, description: null, image: "../assets/images/pincel_caiar.png", pricePerUnit: null, pricePerLitre: null },
+        { id: 'prod_001', name: "Pincel caiar com cabo", reference: "84684310", price: 11.02, stock: 5, description: null, image: "../assets/images/pincel_caiar.png", pricePerUnit: null, pricePerLitre: null },
         { id: 'prod_002', name: "Rolo Dexter universal paredes e tetos 25cm", reference: "82799953", price: 21.99, stock: 12, description: null, image: "../assets/images/rolo.jpg", pricePerUnit: null, pricePerLitre: null },
         { id: 'prod_003', name: "Esmalte direto sobre ferrugem. Acetinado. Spray. PROANOX. Branco", reference: "82401638", price: 14.97, stock: 3, description: null, image: "../assets/images/esmalte.png", pricePerUnit: null, pricePerLitre: null },
         { id: 'prod_004', name: "Esmalte poliuretano 2 componentes. 10l brilhante. 1.5l branco", reference: "82393193", price: 218.01, stock: 8, description: null, image: "../assets/images/esmalte (2).png", pricePerUnit: null, pricePerLitre: 18.96 },

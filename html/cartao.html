@@ -38,7 +38,7 @@
 
     <div class="main-content">
         <h1 class="cart-title">Dados de Pagamento por Multibanco</h1>
-        <form class="delivery-form" action="pedidofinalizado.html" method="post">
+        <form class="delivery-form">
             <div class="form-group">
                 <label for="card-number">Número do Cartão</label>
                 <input type="text" id="card-number" name="card-number" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required />
@@ -73,97 +73,103 @@
                 <input type="text" id="postalcode" name="postalcode" placeholder="Código Postal" required />
             </div>
             <div class="buttons-container">
-                <button type="submit" class="btn-payment-final">
+                <button type="button" class="btn-payment-final">
                     Finalizar Pedido
                 </button>
             </div>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
-                    if (!deliveryData.country) {
-                        // This check is for ensuring delivery data exists before proceeding to payment.
-                        // window.location.href = 'dadosentrega.html';
-                    }
-                });
-
-                document.querySelector('.btn-payment').addEventListener('click', function (event) {
-                    event.preventDefault(); // Prevent default form submission
-
-                    // Get payment data (Multibanco specific)
-                    const cardNumber = document.getElementById('card-number')?.value;
-                    const validity = document.getElementById('validity')?.value;
-                    const cvv = document.getElementById('cvv')?.value;
-
-                    // Get billing data
-                    const name = document.getElementById('name').value;
-                    const nif = document.getElementById('nif').value;
-                    const address = document.getElementById('address').value;
-                    const floor = document.getElementById('floor').value;
-                    const postalcode = document.getElementById('postalcode').value;
-
-                    // Validate if fields are filled before saving and redirecting
-                    if (!cardNumber || !validity || !cvv || !name || !nif || !address || !postalcode) {
-                        alert('Por favor, preencha todos os campos obrigatórios.');
-                        return; // Stop the function if validation fails
-                    }
-
-                    // Retrieve cart data and totals already saved by carrinho.js
-                    const cartData = JSON.parse(localStorage.getItem('bricoObraCart')) || [];
-                    const orderTotals = JSON.parse(localStorage.getItem('bricoObraTotals')) || {};
-
-                    // Create an object to store all final order details
-                    const finalOrderDetails = {
-                        paymentMethod: 'Multibanco', // Explicitly set for Multibanco page
-                        paymentDetails: {
-                            cardNumber: cardNumber, // You might want to store only last 4 digits for security
-                            validity: validity,
-                            cvv: cvv // WARNING: Storing CVV is highly insecure and should never be done in a real application.
-                        },
-                        billingInfo: {
-                            name: name,
-                            nif: nif,
-                            address: address,
-                            floor: floor,
-                            postalcode: postalcode
-                        },
-                        cartItems: cartData,
-                        totals: orderTotals
-                    };
-
-                    // Save the complete order details to localStorage
-                    localStorage.setItem('bricoObraFinalOrder', JSON.stringify(finalOrderDetails));
-
-                    // Redirect to the finalization page
-                    window.location.href = 'pedidofinalizado.html';
-                });
-            </script>
-            <style>
-                .buttons-container {
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 20px;
-                }
-
-                .btn-payment-final {
-                    flex: 1;
-                    padding: 12px 0;
-                    border: none;
-                    background-color: #FE7501;;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    transition: background-color 0.3s;
-                }
-
-                .btn-payment-final:hover {
-                    background: #e06a00;
-                    transform: scale(1.02);
-                }
-            </style>
         </form>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
+            if (!deliveryData.country) {
+                // This check is for ensuring delivery data exists before proceeding to payment.
+                // It's good practice to redirect if delivery data is missing.
+                window.location.href = 'dadosentrega.html';
+            }
+
+            // CORRECTED: Target the button with class .btn-payment-final
+            document.querySelector('.btn-payment-final').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get payment data (Multibanco specific)
+                const cardNumber = document.getElementById('card-number')?.value;
+                const validity = document.getElementById('validity')?.value;
+                const cvv = document.getElementById('cvv')?.value;
+
+                // Get billing data
+                const name = document.getElementById('name').value;
+                const nif = document.getElementById('nif').value;
+                const address = document.getElementById('address').value;
+                const floor = document.getElementById('floor').value;
+                const postalcode = document.getElementById('postalcode').value;
+
+                // Validate if fields are filled before saving and redirecting
+                if (!cardNumber || !validity || !cvv || !name || !nif || !address || !postalcode) {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                    return; // Stop the function if validation fails
+                }
+
+                // Retrieve cart data and totals already saved by carrinho.js
+                const cartData = JSON.parse(localStorage.getItem('bricoObraCart')) || [];
+                const orderTotals = JSON.parse(localStorage.getItem('bricoObraTotals')) || {};
+                const deliveryInfo = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {}; // Retrieve delivery info
+
+                // Create an object to store all final order details
+                const finalOrderDetails = {
+                    paymentMethod: 'Multibanco',
+                    paymentDetails: {
+                        // For security, never store full card numbers or CVVs in local storage or or send them unencrypted in a real application.
+                        // For this local demo, keeping it for now, but be aware for real applications.
+                        cardNumber: cardNumber,
+                        validity: validity,
+                        cvv: cvv // WARNING: Storing CVV is highly insecure and should never be done in a real application.
+                    },
+                    billingInfo: {
+                        name: name,
+                        nif: nif,
+                        address: address,
+                        floor: floor,
+                        postalcode: postalcode
+                    },
+                    deliveryInfo: deliveryInfo, // ADDED: delivery info
+                    cartItems: cartData,
+                    totals: orderTotals
+                };
+
+                // Save the complete order details to localStorage
+                localStorage.setItem('bricoObraFinalOrder', JSON.stringify(finalOrderDetails));
+
+                // Redirect to the finalization page
+                window.location.href = 'pedidofinalizado.html';
+            });
+        }); // End of DOMContentLoaded
+    </script>
+    <style>
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-payment-final {
+            flex: 1;
+            padding: 12px 0;
+            border: none;
+            background-color: #FE7501; /* Original color, adjusted slightly if needed for hover */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-payment-final:hover {
+            background: #e06a00;
+            transform: scale(1.02);
+        }
+    </style>
 
     <footer class="store-footer">
         <div class="store-info">
@@ -189,6 +195,6 @@
                 &copy; 2025 Brico-Obra. Todos os direitos reservados.
             </div>
         </div>
-        </footer>
+    </footer>
 </body>
 </html>

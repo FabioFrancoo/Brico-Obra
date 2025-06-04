@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MB Way</title>
+    <title>MBWay</title>
     <link rel="stylesheet" href="../css/dadosentrega.css" />
     <link rel="stylesheet" href="../css/carrinho.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -37,11 +37,11 @@
     </div>
 
     <div class="main-content">
-        <h1 class="cart-title">Dados de Pagamento por MBway</h1>
-        <form class="delivery-form" action="pedidofinalizado.html" method="post">
+        <h1 class="cart-title">Dados de Pagamento por MBWay</h1>
+        <form class="delivery-form">
             <div class="form-group">
-                <label for="phone">Número de Telefone</label>
-                <input type="tel" id="phone" name="phone" placeholder="Número de Telefone" required />
+                <label for="phone-number">Número de Telefone MBWay</label>
+                <input type="tel" id="phone-number" name="phone-number" placeholder="912345678" maxlength="9" required />
             </div>
             <h2 class="cart-title">Dados de Faturação</h2>
             <div class="form-group">
@@ -65,93 +65,97 @@
                 <input type="text" id="postalcode" name="postalcode" placeholder="Código Postal" required />
             </div>
             <div class="buttons-container">
-                <button type="submit" class="btn-payment-final">
+                <button type="button" class="btn-payment-final">
                     Finalizar Pedido
                 </button>
             </div>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
-                    if (!deliveryData.country) {
-                        // This check is for ensuring delivery data exists before proceeding to payment.
-                        // window.location.href = 'dadosentrega.html';
-                    }
-                });
-
-                document.querySelector('.btn-payment').addEventListener('click', function (event) {
-                    event.preventDefault(); // Prevent default form submission
-
-                    // Get payment data (MBWay specific)
-                    const phoneNumber = document.getElementById('phone')?.value;
-
-                    // Get billing data
-                    const name = document.getElementById('name').value;
-                    const nif = document.getElementById('nif').value;
-                    const address = document.getElementById('address').value;
-                    const floor = document.getElementById('floor').value;
-                    const postalcode = document.getElementById('postalcode').value;
-
-                    // Validate if fields are filled before saving and redirecting
-                    if (!phoneNumber || !name || !nif || !address || !postalcode) {
-                        alert('Por favor, preencha todos os campos obrigatórios.');
-                        return; // Stop the function if validation fails
-                    }
-
-                    // Retrieve cart data and totals already saved by carrinho.js
-                    const cartData = JSON.parse(localStorage.getItem('bricoObraCart')) || [];
-                    const orderTotals = JSON.parse(localStorage.getItem('bricoObraTotals')) || {};
-
-                    // Create an object to store all final order details
-                    const finalOrderDetails = {
-                        paymentMethod: 'MBWay', // Explicitly set for MBWay page
-                        paymentDetails: {
-                            phoneNumber: phoneNumber
-                        },
-                        billingInfo: {
-                            name: name,
-                            nif: nif,
-                            address: address,
-                            floor: floor,
-                            postalcode: postalcode
-                        },
-                        cartItems: cartData,
-                        totals: orderTotals
-                    };
-
-                    // Save the complete order details to localStorage
-                    localStorage.setItem('bricoObraFinalOrder', JSON.stringify(finalOrderDetails));
-
-                    // Redirect to the finalization page
-                    window.location.href = 'pedidofinalizado.html';
-                });
-            </script>
-            <style>
-                .buttons-container {
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 20px;
-                }
-
-                .btn-payment-final {
-                    flex: 1;
-                    padding: 12px 0;
-                    border: none;
-                    background-color: #FE7501;;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 16px;
-                    border-radius: 10px;
-                    cursor: pointer;
-                    transition: background-color 0.3s;
-                }
-
-                .btn-payment-final:hover {
-                    background: #e06a00;
-                    transform: scale(1.02);
-                }
-            </style>
         </form>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deliveryData = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {};
+            if (!deliveryData.country) {
+                // Ensure delivery data exists before proceeding to payment.
+                window.location.href = 'dadosentrega.html';
+            }
+
+            // Target the button with class .btn-payment-final
+            document.querySelector('.btn-payment-final').addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get payment data (MBWay specific)
+                const phoneNumber = document.getElementById('phone-number')?.value;
+
+                // Get billing data
+                const name = document.getElementById('name').value;
+                const nif = document.getElementById('nif').value;
+                const address = document.getElementById('address').value;
+                const floor = document.getElementById('floor').value;
+                const postalcode = document.getElementById('postalcode').value;
+
+                // Validate if fields are filled before saving and redirecting
+                if (!phoneNumber || !name || !nif || !address || !postalcode) {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                    return; // Stop the function if validation fails
+                }
+
+                // Retrieve cart data and totals already saved by carrinho.js
+                const cartData = JSON.parse(localStorage.getItem('bricoObraCart')) || [];
+                const orderTotals = JSON.parse(localStorage.getItem('bricoObraTotals')) || {};
+                const deliveryInfo = JSON.parse(localStorage.getItem('bricoObraDelivery')) || {}; // Retrieve delivery info
+
+                // Create an object to store all final order details
+                const finalOrderDetails = {
+                    paymentMethod: 'MBWay', // Explicitly set for MBWay page
+                    paymentDetails: {
+                        phoneNumber: phoneNumber
+                    },
+                    billingInfo: {
+                        name: name,
+                        nif: nif,
+                        address: address,
+                        floor: floor,
+                        postalcode: postalcode
+                    },
+                    deliveryInfo: deliveryInfo, // Add delivery info here
+                    cartItems: cartData,
+                    totals: orderTotals
+                };
+
+                // Save the complete order details to localStorage
+                localStorage.setItem('bricoObraFinalOrder', JSON.stringify(finalOrderDetails));
+
+                // Redirect to the finalization page
+                window.location.href = 'pedidofinalizado.html';
+            });
+        }); // End of DOMContentLoaded
+    </script>
+    <style>
+        /* Reusing styles from cartao.html for consistency */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn-payment-final {
+            flex: 1;
+            padding: 12px 0;
+            border: none;
+            background-color: #FE7501;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-payment-final:hover {
+            background: #e06a00;
+            transform: scale(1.02);
+        }
+    </style>
 
     <footer class="store-footer">
         <div class="store-info">

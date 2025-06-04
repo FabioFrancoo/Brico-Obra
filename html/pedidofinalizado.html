@@ -22,8 +22,8 @@
         <div class="pedido-finalizado">
             <h1>Pedido Finalizado</h1>
             <div id="resumo-carrinho"></div>
-            <div id="resumo-pagamento"></div> <div id="resumo-entrega"></div>
-        </div>
+            <div id="resumo-pagamento"></div>
+            <div id="resumo-entrega"></div> </div>
     </div>
 
     <script>
@@ -80,18 +80,30 @@
                 resumoPagamentoDiv.innerHTML = paymentSummaryHtml;
             }
 
-            // Display billing/delivery data (using billingInfo from finalOrder)
-            if (finalOrder.billingInfo) {
-                resumoEntregaDiv.innerHTML = `
-                    <h2>Dados de Faturação</h2>
-                    <p><strong>Nome:</strong> ${finalOrder.billingInfo.name || ''}</p>
-                    <p><strong>NIF:</strong> ${finalOrder.billingInfo.nif || ''}</p>
-                    <p><strong>Endereço:</strong> ${finalOrder.billingInfo.address || ''}</p>
-                    <p><strong>Andar:</strong> ${finalOrder.billingInfo.floor || 'N/A'}</p>
-                    <p><strong>Código Postal:</strong> ${finalOrder.billingInfo.postalcode || ''}</p>
-                `;
+            // Display billing/delivery data
+            if (finalOrder.billingInfo || finalOrder.deliveryInfo) {
+                let deliveryBillingHtml = '<h2>Dados de Faturação e Entrega</h2>'; // Combined heading
+                if (finalOrder.billingInfo) {
+                    deliveryBillingHtml += `
+                        <h3>Dados de Faturação:</h3>
+                        <p><strong>Nome:</strong> ${finalOrder.billingInfo.name || ''}</p>
+                        <p><strong>NIF:</strong> ${finalOrder.billingInfo.nif || ''}</p>
+                        <p><strong>Endereço:</strong> ${finalOrder.billingInfo.address || ''}</p>
+                        <p><strong>Andar:</strong> ${finalOrder.billingInfo.floor || 'N/A'}</p>
+                        <p><strong>Código Postal:</strong> ${finalOrder.billingInfo.postalcode || ''}</p>
+                    `;
+                }
+                if (finalOrder.deliveryInfo) {
+                    deliveryBillingHtml += `
+                        <h3>Dados de Entrega:</h3>
+                        <p><strong>País:</strong> ${finalOrder.deliveryInfo.country || ''}</p>
+                        <p><strong>Telefone de Entrega:</strong> ${finalOrder.deliveryInfo.phone || ''}</p>
+                        <p><strong>Observações:</strong> ${finalOrder.deliveryInfo.observations || 'N/A'}</p>
+                    `;
+                }
+                resumoEntregaDiv.innerHTML = deliveryBillingHtml;
             } else {
-                 resumoEntregaDiv.innerHTML = `<p>Nenhum dado de faturação encontrado.</p>`;
+                resumoEntregaDiv.innerHTML = `<p>Nenhum dado de faturação ou entrega encontrado.</p>`;
             }
         });
     </script>
